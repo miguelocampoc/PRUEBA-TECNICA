@@ -11,84 +11,70 @@ class ReportesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function __construct()
     {
-        //
+        $this->middleware('auth');
+        $this->middleware('tecnico');
     }
-    public function 
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('reportes.create');
+   
+    public function crear_motocicletas(){
+        
+        return view('reportes.crear_motocicletas',['crear_motocicletas'=>'active']);
+    }
+    public function crear_arnes(){
+        return view('reportes.crear_arnes',['crear_arnes'=>'active']);
+    }
+    public function crear_escaleras(){
+        return view('reportes.crear_escaleras',['crear_escaleras'=>'active']);
+    }
+    public function editar_motocicletas(){
+        return view('reportes.editar_motocicletas');
+    }
+    public function editar_arnes(){
+        return view('reportes.editar_arnes');
+    }
+    public function editar_escaleras(){
+        return view('reportes.editar_esclaeras');
     }
     public function listar_motocicletas(){
-        return view('reportes.listar_motocicletas');
+        return view('reportes.listar_motocicletas',['listar_motocicletas'=>'active']);
     }
     public function listar_escaleras(){
-        return view('reportes.listar_escaleras');
+        return view('reportes.listar_escaleras',['listar_escaleras'=>'active']);
     }
     public function listar_arnes(){
-        return view('reportes.listar_arnes');
+        return view('reportes.listar_arnes',['listar_arnes'=>'active']);
     }
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
+    
     public function store(Request $request)
     {
-        //
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
-        //
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function create(){
+        
+    }
+  
     public function edit($id)
     {
         return view('reportes.edit');
 
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
-        //
+       
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function destroy($id)
     {
-        //
+        
     }
 }

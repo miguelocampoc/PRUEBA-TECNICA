@@ -11,6 +11,12 @@ class PermisoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('hse', ['except' => ['create', 'list']]);
+    }
+   
     public function index()
     {
         //
@@ -23,9 +29,12 @@ class PermisoController extends Controller
      */
     public function create()
     {
-        //
+        return view('permisos.create',['permiso_create'=>'active']);
     }
-
+    public function list()
+    {
+        return view('permisos.list',['permiso_list'=>'active']);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -36,6 +45,7 @@ class PermisoController extends Controller
     {
         //
     }
+    
 
     /**
      * Display the specified resource.
