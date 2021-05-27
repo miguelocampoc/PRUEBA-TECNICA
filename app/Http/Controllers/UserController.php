@@ -87,6 +87,7 @@ class UserController extends Controller
             "foto_firma"=>$path_foto_firma,
 
         ]);
+        return redirect('/usuarios/create');
 
        
 
