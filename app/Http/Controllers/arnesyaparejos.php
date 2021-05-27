@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\arnesyaparejosM;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class arnesyaparejos extends Controller
 {
@@ -13,7 +14,7 @@ class arnesyaparejos extends Controller
      */
     public function index()
     {
-        //
+        return view('ver.arnesyaparejos');
     }
 
     /**
@@ -23,7 +24,9 @@ class arnesyaparejos extends Controller
      */
     public function create()
     {
-        //
+        return view('crear.arnesyaparejos',[
+            'create'=>'active'
+            ]);
     }
 
     /**
@@ -34,7 +37,26 @@ class arnesyaparejos extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'id_propietario'=> ['required'],
+            'serial' => ['required'],
+            'estado' => ['required'],
+            'tipo' => ['required'],
+            
+        ]); 
+    
+        
+        arnesyaparejosM::create([
+            'id_user'=>Auth::user()->id,
+            'id_propietario'=>$request->id_propietario,
+            'serial'=>$request->placa,
+            'estado'=>$request->marca,
+            'tipos'=>$request->modelo,
+            
+            
+        
+        ]);
+        return redirect('/crear/arnesyaparejos')->with('status', 'creado exitosamente!');
     }
 
     /**
@@ -68,7 +90,20 @@ class arnesyaparejos extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'id_propietario'=> ['required'],
+            'serial' => ['required'],
+            'estado' => ['required'],
+            'tipo' => ['required'],
+            
+        ]); 
+        $Arnesyaparejos = arnesyaparejosM::find($id);
+        $Arnesyaparejos->id_propietario=$request->id_propietario;
+        $Arnesyaparejos->serial=$request->serial;
+        $Arnesyaparejos->estado=$request->estado;
+        $Arnesyaparejos->tipo=$request->tipo;
+        $Arnesyaparejos->save();
+    
     }
 
     /**

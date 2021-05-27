@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\escalerasM;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class escaleras extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class escaleras extends Controller
      */
     public function index()
     {
-        //
+        return view('ver.escaleras');
     }
 
     /**
@@ -23,7 +23,9 @@ class escaleras extends Controller
      */
     public function create()
     {
-        //
+        return view('crear.escaleras',[
+            'create'=>'active'
+            ]);
     }
 
     /**
@@ -34,7 +36,44 @@ class escaleras extends Controller
      */
     public function store(Request $request)
     {
-        //
+   
+        $validatedData = $request->validate([
+            
+            'tipo' => ['required'],
+            'codigo_serie' => ['required'],
+            'estado' => ['required'],
+            
+            
+        ]); 
+    
+        
+        escalerasM::create([
+            'id_user'=>Auth::user()->id,
+            'tipo'=>$request->tipo,
+            'codigo_serie'=>$request->codigo_serie,
+            'estado'=>$request->estado,
+            
+            
+        
+        ]);
+        return redirect('/crear/escaleras')->with('status', 'Escalera creado exitosamente!');
+    }
+    
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'tipo' => ['required'],
+            'codigo_serie' => ['required'],
+            'estado' => ['required'],
+            
+        ]); 
+        $escaleras = escalerasM::find($id);
+        $escaleras->tipo=$request->tipo;
+        $escaleras->codigo_serie=$request->codigo_serie;
+        $escaleras->estado=$request->estado;
+        $escaleras->save();
+    }
+
     }
 
     /**
@@ -43,22 +82,7 @@ class escaleras extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
+   
     /**
      * Update the specified resource in storage.
      *
@@ -66,19 +90,4 @@ class escaleras extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-}
+   

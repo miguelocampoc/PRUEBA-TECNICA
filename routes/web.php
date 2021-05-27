@@ -21,6 +21,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/crear', 'UserController@create');
 Route::post('/usuarios/store', 'UserController@store');
+Route::post('/motocicletas/store', 'motocicletas@store');
+Route::post('/escaleras/store', 'escaleras@store');
+Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
 
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');

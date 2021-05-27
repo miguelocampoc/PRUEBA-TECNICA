@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\MotocicletasM;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class motocicletas extends Controller
 {
     /**
@@ -13,7 +13,8 @@ class motocicletas extends Controller
      */
     public function index()
     {
-        //
+       
+        return view('ver.motocicletas');
     }
 
     /**
@@ -23,7 +24,9 @@ class motocicletas extends Controller
      */
     public function create()
     {
-        //
+        return view('crear.motocicletas',[
+            'create'=>'active'
+            ]);
     }
 
     /**
@@ -34,7 +37,31 @@ class motocicletas extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+      
+        $validatedData = $request->validate([
+            'id_propietario'=> ['required'],
+            'placa' => ['required'],
+            'marca' => ['required'],
+            'modelo' => ['required'],
+            'vigenciatecnicomecanica' => ['required',],
+            'vigenciasoat'=> ['required'],
+            
+        ]); 
+    
+        
+        MotocicletasM::create([
+            'id_user'=>Auth::user()->id,
+            'id_propietario'=>$request->id_propietario,
+            'placa'=>$request->placa,
+            'marca'=>$request->marca,
+            'modelo'=>$request->modelo,
+            'vigenciatecnicomecanica'=> $request->vigenciatecnicomecanica,
+            'vigenciasoat'=> $request->vigenciasoat,
+            
+        
+        ]);
+        return redirect('/ver/motocicletas')->with('status', 'Motocicleta creado exitosamente!');
     }
 
     /**
@@ -68,7 +95,22 @@ class motocicletas extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'id_propietario'=> ['required'],
+            'placa' => ['required'],
+            'marca' => ['required'],
+            'modelo' => ['required'],
+            'vigenciatecnicomecanica' => ['required',],
+            'vigenciasoat'=> ['required'],
+            
+        ]); 
+        $motocicletas = MocoticletasM::find($id);
+        $motocicletas ->placa=$request->placa;
+        $motocicletas ->marca=$request->marca;
+        $motocicletas ->modelo=$request->modelo;
+        $motocicletas ->vigenciatecnicomecanica= $request->vigenciatecnicomecanica;
+        $motocicletas ->vigenciasoat= $request->vigenciasoat;
+        $motocicletas ->save();
     }
 
     /**
