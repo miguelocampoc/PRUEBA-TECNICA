@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
@@ -38,9 +38,42 @@ class UserController extends Controller
      echo json_encode(User::all());
 
     }
-    public function edit_profile(Request $request){
-      //editar los datos con el id autenticado
+    public function edit_profile(Request $request ){
+        $validatedData = $request->validate([
+            'nombre' => ['required', 'string', 'max:255'],
+            'apellido' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'contacto'=> ['required'],
+            'cedula'=> ['required', 'numeric', 'min:5'],
+            'licencia_moto'=>['required', 'numeric', 'min:5',],
+            'cargo'=>['required', 'string', 'max:255'],
+            'rol'=>['required', 'string', 'max:20','max:155'],
+            'estado'=>['required']
+        ]);
+    $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
+       $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
     
+      
+       $id_user=Auth::user()->id;
+            $usuario = User::find($id_user);
+            
+            $usuario->name=$request->nombre;
+            $usuario->apellido=$request->apellido;
+            $usuario->email=$request->email;
+            $usuario->contacto= $request->contacto;
+            $usuario->cedula=$request->cedula;
+            $usuario->licencia_moto=$request->licencia_moto;
+            $usuario->cargo= $request->cargo;
+            $usuario->rol= $request->rol;
+            $usuario->estado= $request->estado;
+            $usuario->foto_perfil='p'.$request->cedula.'.jpg';
+            $usuario->foto_firma='f'.$request->cedula.'.jpg';
+            $usuario->save();
+        
+        
+    
+   
+    return redirect('/usuarios/profile')->with('status', 'Usuario creado exitosamente!');
     }
     
     

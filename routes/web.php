@@ -43,9 +43,9 @@ Route::post("/usuarios/edit_profile", 'UserController@edit_profile');
 /* Fin UsuariosController */
 
 /* ReportesController */
-Route::get('/reportes/crear/motocicletas', 'ReportesController@crear_motocicletas');
-Route::get('/reportes/crear/escaleras', 'ReportesController@crear_escaleras');
-Route::get('/reportes/crear/arnes', 'ReportesController@crear_arnes');
+Route::get('/reportes/crear_motocicletas', 'ReportesController@crear_motocicletas');
+Route::get('/reportes/crear_escaleras', 'ReportesController@crear_escaleras');
+Route::get('/reportes/crear_arnes', 'ReportesController@crear_arnes');
 Route::get('/reportes/editar/motocicletas', 'ReportesController@editar_motocicletas');
 Route::get('/reportes/editar/escaleras', 'ReportesController@editar_escaleras');
 Route::get('/reportes/editar/arnes', 'ReportesController@editar_arnes');
