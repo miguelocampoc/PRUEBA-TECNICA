@@ -49,9 +49,9 @@ class arnesyaparejos extends Controller
         arnesyaparejosM::create([
             'id_user'=>Auth::user()->id,
             'id_propietario'=>$request->id_propietario,
-            'serial'=>$request->placa,
-            'estado'=>$request->marca,
-            'tipos'=>$request->modelo,
+            'serial'=>$request->serial,
+            'estado'=>$request->estado,
+            'tipo'=>$request->tipo,
             
             
         

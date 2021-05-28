@@ -24,6 +24,9 @@ Route::post('/usuarios/store', 'UserController@store');
 Route::post('/motocicletas/store', 'motocicletas@store');
 Route::post('/escaleras/store', 'escaleras@store');
 Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
+Route::post('/ReportesController/create_reporte_motocicletas', 'ReportesController@create_reporte_motocicletas');
+Route::post('/ReportesController/create_reporte_escaleras', 'ReportesController@create_reporte_escaleras');
+Route::post('/ReportesController/create_reporte_arnes', 'ReportesController@create_reporte_arnes');
 
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');
@@ -35,7 +38,7 @@ Route::get("/usuarios/profile", 'UserController@view_profile');
 
 /* ReportesController */
 Route::get('/reportes/crear/motocicletas', 'ReportesController@crear_motocicletas');
-Route::post('/reportes/crear/escaleras', 'ReportesController@crear_escaleras');
+Route::get('/reportes/crear/escaleras', 'ReportesController@crear_escaleras');
 Route::get('/reportes/crear/arnes', 'ReportesController@crear_arnes');
 Route::get('/reportes/editar/motocicletas', 'ReportesController@editar_motocicletas');
 Route::get('/reportes/editar/escaleras', 'ReportesController@editar_escaleras');
