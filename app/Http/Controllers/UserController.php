@@ -28,8 +28,19 @@ class UserController extends Controller
       
         return view('usuarios.list',[
             'listar'=>'active',
-             'users'=>  User::all()
+
             ]);
+    }
+    public function listar_act(){
+     echo json_encode(User::where('estado','=','activo')->get());
+    }
+    public function listar_all(){
+     echo json_encode(User::all());
+
+    }
+    public function edit_profile(Request $request){
+      //editar los datos con el id autenticado
+    
     }
     
     
@@ -68,7 +79,7 @@ class UserController extends Controller
             'foto_perfil'=>['required', 'image'],
             'foto_firma'=>['required', 'image']
         ]);
-      
+        
         $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
         $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
 
@@ -83,11 +94,13 @@ class UserController extends Controller
             'cargo'=> $request->cargo,
             'rol' => $request->rol,
             'estado'=> "activo",
-            "foto_perfil"=>$path_foto_perfil,
-            "foto_firma"=>$path_foto_firma,
+            "foto_perfil"=>'p'.$request->cedula.'.jpg',
+            "foto_firma"=>'f'.$request->cedula.'.jpg',
+            'created_at'=>date('d-m-Y H:i:s'),
+            'updated_at'=>date('d-m-Y H:i:s'),
 
         ]);
-        return redirect('/usuarios/create');
+        return redirect('/usuarios/crear')->with('status', 'Usuario creado exitosamente!');
 
        
 
@@ -101,6 +114,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        
     }
 
     /**
@@ -129,9 +143,7 @@ class UserController extends Controller
             'licencia_moto'=>['required', 'numeric', 'min:5',],
             'cargo'=>['required', 'string', 'max:255'],
             'rol'=>['required', 'string', 'max:20','max:155'],
-            'estado'=>['required'],
-            'foto_perfil'=>['required', 'image'],
-            'foto_firma'=>['required', 'image']
+            'estado'=>['required']
         ]);
     $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
        $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
@@ -146,12 +158,19 @@ class UserController extends Controller
         $usuario->cargo= $request->cargo;
         $usuario->rol= $request->rol;
         $usuario->estado= $request->estado;
-        $usuario->foto_perfil=$path_foto_perfil;
-        $usuario->foto_firma=$path_foto_firma;
+        $usuario->foto_perfil='p'.$request->cedula.'.jpg';
+        $usuario->foto_firma='f'.$request->cedula.'.jpg';
         $usuario->save();
     }
+    public function settingUser(Request $request, $id)
+    {
+      
+        $usuario = User::find($id);
+        $usuario->estado= $request->estado;
+        $usuario->password= Hash::make($request->clave);
+        $usuario->save();
 
- 
+    }
     public function destroy($id)
     {
         $user= User::select('foto_perfil','foto_firma')->where('id','=',$id)->first();

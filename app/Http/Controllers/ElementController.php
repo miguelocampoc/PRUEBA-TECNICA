@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\motocicletas;
 use Illuminate\Http\Request;
 
 class ElementController extends Controller

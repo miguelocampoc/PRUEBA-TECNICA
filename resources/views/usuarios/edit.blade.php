@@ -58,8 +58,11 @@
         @enderror
         </div>
         <div class="col-xl-4  mb-4">
+
         <p>Rol:</p>
+        <div style="color:green"> Su rol es:{{$user->rol }}</div>
         <select id="rol" name="rol" class="form-control" id="exampleFormControlSelect1">
+                 <option value="{{$user->rol}}">---</option>
                 <option value="administrador">Administrador</option>
                 <option value="tecnico">Tecnico</option>
                 <option value="hse">HSE</option>
@@ -71,7 +74,10 @@
         </div>
         <div class="col-xl-4  mb-4">
         <p>Estado:</p>
+        <div style="color:green"> Su estado es:{{$user->estado }}</div>
+
         <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
+                <option value="{{$user->estado}}">---</option>
                 <option value="administrador">Activo</option>
                 <option value="tecnico">Inactivo</option>
          
@@ -85,7 +91,7 @@
         <input  id="foto_perfil" name="foto_perfil" type="file" class="form-control-file  mb-3" id="exampleFormControlFile1">
         <p>La foto actual es:  </p>
 
-        <img width="100px" src="{{asset('darwin.jpeg') }}" alt="" srcset="">
+        <img height="200px" width="200px" alt=""  src="/storage/{{$user->foto_perfil}}" srcset="">
 
         @error('foto_perfil')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -93,9 +99,9 @@
         </div>
         <div class="col-xl-4  mb-4">
         <p>Foto Firma:</p>
-        <input  id="foto_firma" name="foto_firma" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
-        <p>La  firma actual es:  </p>        <br><br>
-        <img  width="200px"src="{{asset('firmadarwin.jpeg') }}" alt="" srcset="">
+        <input value="{{$user->foto_firma}}" id="foto_firma" name="foto_firma" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
+        <p>La  firma actual es:  </p>        
+        <img   height="200px" width="200px" src="/storage/{{$user->foto_firma}}" alt="" srcset="">
 
         @error('foto_firma')
         <div class="alert alert-danger">{{ $message }}</div>

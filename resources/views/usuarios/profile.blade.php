@@ -3,7 +3,7 @@
 <br>
 <div class="container">
 <h2>Mi perfil</h2>
-<form  enctype="multipart/form-data" action="/usuarios/update" method="POST">
+<form  enctype="multipart/form-data" action="/usuarios/edit_profile" method="POST">
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">
@@ -59,7 +59,10 @@
         </div>
         <div class="col-xl-4  mb-4">
         <p>Rol:</p>
+        <div style="color:green"> Su rol es:{{Auth::user()->rol }}</div>
+
         <select id="rol" name="rol" class="form-control" id="exampleFormControlSelect1">
+                <option value="{{Auth::user()->rol }}">-----</option>
                 <option value="administrador">Administrador</option>
                 <option value="tecnico">Tecnico</option>
                 <option value="hse">HSE</option>
@@ -71,7 +74,9 @@
         </div>
         <div class="col-xl-4  mb-4">
         <p>Estado:</p>
+        <div style="color:green"> Su estado es:{{Auth::user()->estado }}</div>
         <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
+                <option value="{{Auth::user()->estado }}">------</option>
                 <option value="administrador">Activo</option>
                 <option value="tecnico">Inactivo</option>
          
@@ -85,7 +90,7 @@
         <input  id="foto_perfil" name="foto_perfil" type="file" class="form-control-file  mb-3" id="exampleFormControlFile1">
         <p>La foto actual es:  </p>
 
-        <img width="100px" src="{{asset('darwin.jpeg') }}" alt="" srcset="">
+        <img  height="200px" width="200px" src="/storage/{{Auth::user()->foto_perfil }}"  alt="" srcset="">
 
         @error('foto_perfil')
         <div class="alert alert-danger">{{ $message }}</div>
@@ -95,7 +100,7 @@
         <p>Foto Firma:</p>
         <input  id="foto_firma" name="foto_firma" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
         <p>La  firma actual es:  </p>        <br><br>
-        <img  width="200px"src="{{asset('firmadarwin.jpeg') }}" alt="" srcset="">
+        <img  height="200px" width="200px" src="/storage/{{Auth::user()->foto_firma }}" alt="" srcset="">
 
         @error('foto_firma')
         <div class="alert alert-danger">{{ $message }}</div>

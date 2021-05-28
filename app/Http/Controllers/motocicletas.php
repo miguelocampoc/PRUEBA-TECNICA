@@ -23,7 +23,10 @@ class motocicletas extends Controller
      */
     public function create()
     {
-        //
+        user::create(
+            'id_user'=> user::auth()->id;
+            'id_propietario'=>$request->id_propietario
+        );
     }
 
     /**
@@ -79,6 +82,6 @@ class motocicletas extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

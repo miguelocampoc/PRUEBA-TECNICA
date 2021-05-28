@@ -24,15 +24,21 @@ Route::post('/usuarios/store', 'UserController@store');
 
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');
+Route::get('/usuarios/listar_all', 'UserController@listar_all');
+Route::get('/usuarios/listar_act', 'UserController@listar_act');
+Route::post('/usuarios/setting/{id}','UserController@settingUser');
+
 Route::post('/usuarios/update/{id}','UserController@update');
 Route::get("/usuarios/destroy/{id}", 'UserController@destroy');
 Route::get("/usuarios/profile", 'UserController@view_profile');
+Route::post("/usuarios/edit_profile", 'UserController@edit_profile');
+
 
 /* Fin UsuariosController */
 
 /* ReportesController */
 Route::get('/reportes/crear/motocicletas', 'ReportesController@crear_motocicletas');
-Route::post('/reportes/crear/escaleras', 'ReportesController@crear_escaleras');
+Route::get('/reportes/crear/escaleras', 'ReportesController@crear_escaleras');
 Route::get('/reportes/crear/arnes', 'ReportesController@crear_arnes');
 Route::get('/reportes/editar/motocicletas', 'ReportesController@editar_motocicletas');
 Route::get('/reportes/editar/escaleras', 'ReportesController@editar_escaleras');

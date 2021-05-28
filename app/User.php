@@ -25,7 +25,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token','email'
+        'password', 'remember_token',
     ];
 
     /**
@@ -35,6 +35,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'created_at'=>'varchar',
+        'updated_at'=>'varchar'
     ];
 
     public function motocicletas(){
