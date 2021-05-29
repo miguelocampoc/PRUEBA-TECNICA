@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use App\formatos;
 use Illuminate\Http\Request;
 use function GuzzleHttp\json_decode;
+use Illuminate\Support\Facades\Auth;
+use function GuzzleHttp\json_encode;
 
 class ReportesController extends Controller
 {
@@ -84,13 +86,15 @@ class ReportesController extends Controller
             'criterio_aceptacion5'=>$request->criterio_aceptacion5,
 
         ];
+         
         formatos::create([
             'id_user'=>Auth::user()->id,
             'categoria'=> 'arnesyaparejos',
-            'attributes'=>json_decode($attributes),
+            'attributes'=> json_encode($attributes, True)
             
             ]);
             return redirect('/reportes/crear_arnes')->with('status', 'creado exitosamente!');
+        
     }
     
     
@@ -159,7 +163,7 @@ class ReportesController extends Controller
         $motocicleta = formatos::find($id);
         $motocicleta->id_user=Auth::user()->id;
         $motocicleta->categoria='motocicletas';
-        $motocicleta->attributes=json_decode($attributes);
+        $motocicleta->attributes=json_encode($attributes, True);
         $motocicleta->save();
     }
 
@@ -206,7 +210,7 @@ class ReportesController extends Controller
         $arnes= formatos::find($id);
         $arnes->id_user=Auth::user()->id;
         $arnes->categoria='arnes';
-        $arnes->attributes=json_decode($attributes);
+        $arnes->attributes=json_encode($attributes,True);
         $arnes->save();
     }
     public function update(Request $request, $id)

@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>N° eslinga:</p>
-                <input id="n_eslinga" name="n_eslinga" type="email" class="form-control">
+                <input id="n_eslinga" name="n_eslinga"  class="form-control">
                 @error('eslinga')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror

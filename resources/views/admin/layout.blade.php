@@ -358,19 +358,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/reportes/crear/motocicletas" class="nav-link @if(isset($crear_motocicletas)) {{ $crear_motocicletas}} @endif ">
+                <a href="/reportes/crear_motocicletas" class="nav-link @if(isset($crear_motocicletas)) {{ $crear_motocicletas}} @endif ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Motocicletas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/reportes/crear/escaleras" class="nav-link @if(isset($crear_escaleras)) {{ $crear_escaleras}} @endif">
+                <a href="/reportes/crear_escaleras" class="nav-link @if(isset($crear_escaleras)) {{ $crear_escaleras}} @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Escaleras</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/reportes/crear/arnes" class="nav-link @if(isset($crear_arnes)) {{ $crear_arnes}} @endif">
+                <a href="/reportes/crear_arnes" class="nav-link @if(isset($crear_arnes)) {{ $crear_arnes}} @endif">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Arnes y aparejos</p>
                 </a>
