@@ -48,9 +48,6 @@ class ReportesController extends Controller
     }
     
     
-
-    }
-    
     public function create_reporte_arnes(Request $request)
     {
         $attributes=[

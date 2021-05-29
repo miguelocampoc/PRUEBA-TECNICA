@@ -3,6 +3,7 @@
 <br>
 <div class="container">
 <h2>Mi perfil</h2>
+<p>Su rol es:{{Auth::user()->rol }}</p>
 <form  enctype="multipart/form-data" action="/usuarios/edit_profile" method="POST">
 @csrf
 <div class="row">
@@ -58,32 +59,10 @@
         @enderror
         </div>
         <div class="col-xl-4  mb-4">
-        <p>Rol:</p>
-        <div style="color:green"> Su rol es:{{Auth::user()->rol }}</div>
-
-        <select id="rol" name="rol" class="form-control" id="exampleFormControlSelect1">
-                <option value="{{Auth::user()->rol }}">-----</option>
-                <option value="administrador">Administrador</option>
-                <option value="tecnico">Tecnico</option>
-                <option value="hse">HSE</option>
-         
-        </select>
-        @error('rol')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+      
         </div>
         <div class="col-xl-4  mb-4">
-        <p>Estado:</p>
-        <div style="color:green"> Su estado es:{{Auth::user()->estado }}</div>
-        <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
-                <option value="{{Auth::user()->estado }}">------</option>
-                <option value="administrador">Activo</option>
-                <option value="tecnico">Inactivo</option>
-         
-        </select>
-        @error('rol')
-        <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+      
         </div>
         <div class="col-xl-4  mb-4">
         <p>Foto:</p>

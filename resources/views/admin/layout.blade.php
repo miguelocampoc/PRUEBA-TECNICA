@@ -420,7 +420,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </a>
         </li>
         @endif
-        @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='hse' )
+        @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='ca' )
 
         <li class="nav-item">
           

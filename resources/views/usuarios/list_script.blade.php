@@ -55,6 +55,9 @@ var app = new Vue({
       settings:function (id){
           $("#insert").modal({backdrop: "static"});
           $('#id_user').val(id);
+          $('#password').val("");
+          $('#cpassword').val("");
+
           $('#insert').modal('show');        
     }
    

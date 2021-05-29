@@ -65,7 +65,7 @@
                  <option value="{{$user->rol}}">---</option>
                 <option value="administrador">Administrador</option>
                 <option value="tecnico">Tecnico</option>
-                <option value="hse">HSE</option>
+                <option value="ca">Cordinador de alturas</option>
          
         </select>
         @error('rol')

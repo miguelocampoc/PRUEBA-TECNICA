@@ -19,7 +19,7 @@ span{
          background-size: cover;
          width: 100%;
          height:100%;
-         height:100vh; ">
+         min-height:100vh; ">
 <div  class="container"> 
  <br>
    <div class="row">
@@ -52,15 +52,16 @@ span{
                     </div>
                     <div class="card-body border">
                     <span> <i class="far fa-circle mr-3"></i> Crear permisos de trabajo</span><br><br>
-                    @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='hse' )
+                    @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='ca' )
 
-                    <span ><i class="far fa-circle mr-3 "></i>Ver permisos de trabajo </span> <!--<br><br>!-->
+                    <span ><i class="far fa-circle mr-3 "></i>Ver permisos de trabajo </span> <br><br>
                     @endif
-                 <!--   <span ><i class="far fa-circle mr-3 "></i>Ver mis permisos de trabajo </span>!-->
+                <span ><i class="far fa-circle mr-3 "></i>Ver mis permisos de trabajo </span>
                     </div>
             </div>
          </div>
-  <!--
+         @if( Auth::user()->rol=='tecnico' || Auth::user()->rol=='administrador' )
+
          <div class="col-xl-4">
             <div class="card  bg-dark " style="opacity:0.7; color:white;">
                     <div class="card-header border ">
@@ -74,6 +75,9 @@ span{
                     </div>
             </div>
          </div>
+         @endif
+
+         @if( Auth::user()->rol=='tecnico' || Auth::user()->rol=='administrador' )
 
          <div class="col-xl-4">
             <div class="card  bg-dark " style="opacity:0.7; color:white;">
@@ -88,7 +92,9 @@ span{
                     </div>
             </div>
          </div>
-         @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='hse' )
+         @endif
+
+         @if( Auth::user()->rol=='administrador'  )
 
          <div class="col-xl-4">
             <div class="card  bg-dark " style="opacity:0.7; color:white;">
@@ -104,7 +110,7 @@ span{
             </div>
          </div>
          @endif
-         @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='hse' )
+         @if( Auth::user()->rol=='administrador'  )
 
          <div class="col-xl-4">
             <div class="card  bg-dark " style="opacity:0.7; color:white;">
@@ -122,7 +128,7 @@ span{
          @endif
 
     </div>
-    !-->
+    
 </div>
 </div>
 @endsection

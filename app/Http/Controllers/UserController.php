@@ -166,7 +166,6 @@ class UserController extends Controller
     {
       
         $usuario = User::find($id);
-        $usuario->estado= $request->estado;
         $usuario->password= Hash::make($request->clave);
         $usuario->save();
 

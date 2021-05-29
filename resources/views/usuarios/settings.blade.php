@@ -12,20 +12,16 @@
         <form >
         @csrf
         <div class="modal-body">
-        <input type="text " id="id_user" ></input>
-
-            <label>Estado del usuario:</label>
-            <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
-                <option value="activo">Activo</option>
-                <option value="inactivo">Inactivo</option>  
-             </select>            
-        <br>
+        <input style="display:none" id="id_user" ></input>         
         <h5 class="modal-title pb-3"  id="exampleModalLongTitle">Reestablecimiento de contraseña</h5>
 
         <label>Nueva contraseña:</label>
             <input type="password"  name="password" class="form-control" placeholder="Ingrese la nueva contraseña" id="password" ></input>
+            <span class="mb-2"style="color:red" id="message-password"></span><br>
+
             <label>Confirmar password:</label>
             <input type="password" name="cpassword" class="form-control" placeholder="Confirme la nueva contraseña"  id="cpassword" ></input>
+            <span   style="color:red" id="message-cpassword"></span>
         </div>
         <div class="modal-footer">
           <button type="button" onclick="create()" class="btn btn-primary ">Guardar Cambios</button>
@@ -36,13 +32,47 @@
     </div>
   </div>
   <script>
+ function validate(clave,cclave){
+     if(clave==cclave & clave!="" & cclave!="" && clave.length>7 ){
+      $('#message-password').text("");
+      $('#message-cpassword').text("");
 
+         return true;
+     }
+     else{
+       if(clave==""){
+      $('#message-password').text("Este campo no puede estar vacio");
+       }
+       if(cclave==""){
+       $('#message-cpassword').text("Este campo no puede estar vacio");
+       }
+       if(clave!=cclave & clave!="" & cclave!="" & clave.length>7 ){
+        $('#message-password').text("Este campo debe coincidir con el siguiente campo");
+        $('#message-cpassword').text("Este campo debe coincidir con el anterior campo");
+
+       }
+      
+       if(clave!="" & clave.length<=7 ){
+        $('#message-password').text("El campo debe tener mas de 7 caracteres");
+
+       }
+       if(cclave!="" & cclave.length<=7 ){
+        $('#message-cpassword').text("El campo debe tener mas de 7 caracteres");
+
+       }
+      
+       return false;
+
+     }
+
+ }
   function create()
    {
         id= $('#id_user').val();
-        estado= $('#estado').val();
         clave=$('#password').val();
-        parametros={"id":id,"estado":estado,"clave":clave}
+        cclave=$('#cpassword').val();
+        if(validate(clave,cclave)){
+        parametros={"id":id,"clave":clave}
         Swal.fire({
         title: '¿Estas seguro de editar la informacion?',
         icon: 'warning',
@@ -65,6 +95,10 @@
 
         }
         })
+        }
+        
+        
   }
+
 
 </script>
