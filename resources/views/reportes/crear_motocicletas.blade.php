@@ -3,7 +3,7 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Motocicletas</h3>
-<form  enctype="multipart/form-data" action="/ReportesController/create_reporte_motocicletas" method="POST">
+<form  action="/reportes/create_reporte_motocicletas" method="POST">
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">
@@ -22,56 +22,59 @@
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>Modelo:</p>
-                <input id="email" name="modelo" type="email" class="form-control">
+                <input id="email" name="modelo" type="text" class="form-control">
                 @error('email')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>Conductor:</p>
-                <input id="email" name="conductor" type="email" class="form-control">
+                <input id="email" name="conductor" type="text" class="form-control">
                 @error('email')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Licencia de transito</p>
-                        <select id="rol" name="licencia_transito" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>     
+                        <select id="licencia_transito" name="licencia_transito" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>     
                         </select>
                         
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Revision Tecnomecanica Vigente</p>
-                        <select id="rol" name="reivision_tecnico" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>     
+                        <select id="revision_tecnico" name="revision_tecnico" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>     
                         </select>
                         
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Fecha Vigente</p>
-                     <input type="fecha_vigente" class="form-control">
+                     <input type="text" name="fecha_vigente"  class="form-control">
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Soat vigente</p>
-                <select id="rol" name="soat_vigente" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>     
+                <select id="soat_vigente" name="soat_vigente" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>     
                         </select>
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>KM INICIAL:</p>
-                <input type="km_inicial" class="form-control"> 
+                <input type="text" name="km_inicial" class="form-control"> 
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>KM FINAL:</p>                
-                <input type="km_final" class="form-control"> 
+                <input type="text" name="km_final" class="form-control"> 
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>TOTAL KM</p>
-                <input type="km_total" class="form-control"> 
+                <input type="text" name="km_total"  class="form-control"> 
                 </div>
             
   
@@ -147,22 +150,25 @@
           <div class="col-xl-4 mb-4">
             <p>Se realizo limpieza del vehiculo
             <select id="limpieza" name="limpieza" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                       <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select>       
             </div>
             <div class="col-xl-4 mb-4">
             <p>Esta el vehiculo organizado en su interio
             <select id="vehiculo_organizado" name="vehiculo_organizado" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select> 
             </div>
             <div class="col-xl-4 mb-4">
             <p>Se realizo desinfeccion de llaves, botones, palancas de cambios, palanca de frenos, manubrio y todas las superficies de contacto.
             <select id="desinfeccion" name="desinfeccion" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select> 
             </div>
 
@@ -173,22 +179,25 @@
           <div class="col-xl-4 mb-4">
             <p>EL TRABAJADOR RECIBIÓ CAPACITACION RESPECTO A LOS RIESGOS DEL TRANSITO, LOS CONOCE Y ACEPTA CONDUCIR DE MANERA DEFENSIVA
             <select id="capacitacion" name="capacitacion" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select> 
             </div>
             <div class="col-xl-4 mb-4">
             <p>EL TRABAJADOR MANIFIESTA NO HABER CONSUMIDO ALCOHOL, SUSTANCIAS PSICOACTIVAS, BEBIDAS O ALIMENTOS QUE LE PONGAN EN RIESGO A EL O A TERCEROS
             <select id="consumo_bebidas" name="consumo_bebidas" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select> 
             </div>
             <div class="col-xl-4 mb-4">
             <p>EL TRABAJADOR SE ENCUENTRA EN CONDICONES DE SALUD APTAS PARA CONDUCIR
             <select id="trabajador_salud" name="trabajador_salud" class="form-control" id="exampleFormControlSelect1">
-                        <option value="administrador">SI</option>
-                        <option value="tecnico">NO</option>                
+                        <option value="">-----</option>
+                        <option value="si">SI</option>
+                        <option value="no">NO</option>                
                         </select> 
             </div>
         
@@ -198,81 +207,89 @@
              <div class="row">
              <div class="col-xl-4 mb-4">
             <p>LABRADO DE RUEDAS 3mm (VISUAL)
-                        <select  name="labrado_ruedas" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                         <select  name="labrado_ruedas" class="form-control" id="exampleFormControlSelect1">
+                               <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>CAMBIO DE ACEITE
             <select id="cambio_aceite" name="cambio_aciete" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                 <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>CAMBIO DE FILTRO
             <select id="cambio_filtro" name="cambio_filtro" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>EMBRAGUE AJUSTADO Y SUAVE
             <select id="embrague" name="embrague" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regula">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>KIT DE ARRASTE
             <select id="kit_arrastre" name="kit_arrastre" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>CONTROL DE FUGAS (Aceite y gasolina)
             <select id="control_fugas" name="control_fugas" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>ESTADO DE AMORTIGUADORES
             <select id="amortiguadores" name="amortiguadores" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>EXOSTO - SILENCIADOR
             <select id="exosto" name="exosto" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
@@ -280,10 +297,11 @@
             <div class="col-xl-4 mb-4">
             <p>CASCO Y CHALECO DEL CONDUCTOR
             <select id="casco_chaleto_conductor" name="casco_chaleto_conductor" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
@@ -291,10 +309,11 @@
             <div class="col-xl-4 mb-4">
             <p>CAJA DE HERRAMIENTAS (Llave expansiva, destornilladores -pala y estrella, llaves fijas, alicate, llave bujía)
             <select id="caja_herramientas" name="caja_herramientas" class="form-control" id="exampleFormControlSelect1">
-                                <option value="administrador">B-Bueno</option>
-                                <option value="tecnico">R-Regular</option>
-                                <option value="tecnico">M-Malo</option>
-                                <option value="hse">NT-No Tiene</option>
+                                <option value="">-----</option>
+                                <option value="B-Bueno">B-Bueno</option>
+                                <option value="R-Regular">R-Regular</option>
+                                <option value="M-Malo">M-Malo</option>
+                                <option value="NT-No Tiene">NT-No Tiene</option>
                         
                         </select>
             </div>
@@ -315,5 +334,6 @@
 
 </form>
 </div>
+
 @endsection
 

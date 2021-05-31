@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Notifications\MyResetPassword;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'name', 'password','email','apellido','contacto','cedula','licencia_moto','cargo','rol','estado','foto_perfil','foto_firma','created_at','updated_at'
+      'id','name', 'password','email','apellido','contacto','cedula','licencia_moto','cargo','rol','estado','foto_perfil','foto_firma','created_at','updated_at'
     ];
 
     /**
@@ -35,11 +35,13 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'created_at'=>'varchar',
-        'updated_at'=>'varchar'
     ];
 
     public function motocicletas(){
         return $this->hasMany(motocicletas::class);
     }
+    public function sendPasswordResetNotification($token)
+    {
+    $this->notify(new MyResetPassword($token));
+     } 
 }

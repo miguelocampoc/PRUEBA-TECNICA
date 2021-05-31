@@ -24,10 +24,7 @@ class motocicletas extends Controller
      */
     public function create()
     {
-        user::create(
-            'id_user'=> user::auth()->id;
-            'id_propietario'=>$request->id_propietario
-        );
+        
     }
 
     /**
@@ -41,13 +38,13 @@ class motocicletas extends Controller
        
       
         $validatedData = $request->validate([
-            'id_propietario'=> ['required'],
+            'id_propietario' =>['required'],
             'placa' => ['required'],
             'marca' => ['required'],
             'modelo' => ['required'],
-            'vigenciatecnicomecanica' => ['required',],
+            'vigenciatecnicomecanica' => ['required'],
             'vigenciasoat'=> ['required'],
-            
+             
         ]); 
     
         
@@ -59,10 +56,9 @@ class motocicletas extends Controller
             'modelo'=>$request->modelo,
             'vigenciatecnicomecanica'=> $request->vigenciatecnicomecanica,
             'vigenciasoat'=> $request->vigenciasoat,
-            
         
         ]);
-        return redirect('/ver/motocicletas')->with('status', 'Motocicleta creado exitosamente!');
+        return redirect('/crear/motocicletas')->with('status', 'Motocicleta creado exitosamente!');
     }
 
     /**

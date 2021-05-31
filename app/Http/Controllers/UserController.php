@@ -8,6 +8,7 @@ use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Rules\ImageEdit;
 class UserController extends Controller
 {
 
@@ -28,7 +29,7 @@ class UserController extends Controller
       
         return view('usuarios.list',[
             'listar'=>'active',
-
+             'users_all'=>User::all()
             ]);
     }
     public function listar_act(){
@@ -39,6 +40,10 @@ class UserController extends Controller
 
     }
     public function edit_profile(Request $request ){
+        $id=Auth::user()->id;
+        $foto_perfil=$_FILES['foto_perfil']['type'];
+        $foto_firma=$_FILES['foto_firma']['type'];
+        
         $validatedData = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
@@ -47,16 +52,17 @@ class UserController extends Controller
             'cedula'=> ['required', 'numeric', 'min:5'],
             'licencia_moto'=>['required', 'numeric', 'min:5',],
             'cargo'=>['required', 'string', 'max:255'],
-            'rol'=>['required', 'string', 'max:20','max:155'],
-            'estado'=>['required']
+            'foto_perfil'=> new ImageEdit($foto_perfil),
+            'foto_firma'=> new ImageEdit($foto_firma),
         ]);
-    $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
-       $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
     
-      
-       $id_user=Auth::user()->id;
-            $usuario = User::find($id_user);
-            
+        if($foto_perfil!=NULL){
+            $path_foto_perfil=$request->file('foto_perfil')->storeAs('private','p'.$id.'.jpg');
+        }
+        if($foto_firma!=NULL){
+            $path_foto_firma=$request->file('foto_firma')->storeAs('private','f'.$id.'.jpg');
+        }
+            $usuario = User::find($id);
             $usuario->name=$request->nombre;
             $usuario->apellido=$request->apellido;
             $usuario->email=$request->email;
@@ -64,16 +70,14 @@ class UserController extends Controller
             $usuario->cedula=$request->cedula;
             $usuario->licencia_moto=$request->licencia_moto;
             $usuario->cargo= $request->cargo;
-            $usuario->rol= $request->rol;
-            $usuario->estado= $request->estado;
-            $usuario->foto_perfil='p'.$request->cedula.'.jpg';
-            $usuario->foto_firma='f'.$request->cedula.'.jpg';
+            $usuario->foto_perfil='p'.$id.'.jpg';
+            $usuario->foto_firma='f'.$id.'.jpg';
             $usuario->save();
         
         
     
    
-    return redirect('/usuarios/profile')->with('status', 'Usuario creado exitosamente!');
+    return redirect('/usuarios/profile')->with('status', 'Su perfil ha sido editado exitosamente!');
     }
     
     
@@ -113,10 +117,9 @@ class UserController extends Controller
             'foto_firma'=>['required', 'image']
         ]);
         
-        $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
-        $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
+    
 
-        User::create([
+      $user=  User::create([
             'name'=>$request->nombre,
             'apellido'=>$request->apellido,
             'email'=>$request->email,
@@ -133,6 +136,9 @@ class UserController extends Controller
             'updated_at'=>date('d-m-Y H:i:s'),
 
         ]);
+        $path_foto_perfil=$request->file('foto_perfil')->storeAs('private','p'.$user->id.'.jpg');
+        $path_foto_firma=$request->file('foto_firma')->storeAs('private','f'.$user->id.'.jpg');
+
         return redirect('/usuarios/crear')->with('status', 'Usuario creado exitosamente!');
 
        
@@ -167,6 +173,11 @@ class UserController extends Controller
     }
     public function update(Request $request, $id)
     {
+     
+     $foto_perfil=$_FILES['foto_perfil']['type'];
+     $foto_firma=$_FILES['foto_firma']['type'];
+
+     
         $validatedData = $request->validate([
             'nombre' => ['required', 'string', 'max:255'],
             'apellido' => ['required', 'string', 'max:255'],
@@ -176,10 +187,16 @@ class UserController extends Controller
             'licencia_moto'=>['required', 'numeric', 'min:5',],
             'cargo'=>['required', 'string', 'max:255'],
             'rol'=>['required', 'string', 'max:20','max:155'],
+            'foto_perfil'=> new ImageEdit($foto_perfil),
+            'foto_firma'=> new ImageEdit($foto_firma),
             'estado'=>['required']
         ]);
-    $path_foto_perfil=$request->file('foto_perfil')->storeAs('public','p'.$request->cedula.'.jpg');
-       $path_foto_firma=$request->file('foto_firma')->storeAs('public','f'.$request->cedula.'.jpg');
+        if($foto_perfil!=NULL){
+            $path_foto_perfil=$request->file('foto_perfil')->storeAs('private','p'.$id.'.jpg');
+        }
+        if($foto_firma!=NULL){
+            $path_foto_firma=$request->file('foto_firma')->storeAs('private','f'.$id.'.jpg');
+        }
        
         $usuario = User::find($id);
         $usuario->name=$request->nombre;
@@ -191,9 +208,11 @@ class UserController extends Controller
         $usuario->cargo= $request->cargo;
         $usuario->rol= $request->rol;
         $usuario->estado= $request->estado;
-        $usuario->foto_perfil='p'.$request->cedula.'.jpg';
-        $usuario->foto_firma='f'.$request->cedula.'.jpg';
+        $usuario->foto_perfil='p'.$id.'.jpg';
+        $usuario->foto_firma='f'.$id.'.jpg';
         $usuario->save();
+        return redirect('/usuarios/editar/'.$id)->with('status', 'Usuario editado exitosamente!');
+
     }
     public function settingUser(Request $request, $id)
     {
@@ -213,5 +232,15 @@ class UserController extends Controller
 
         Storage::delete(['public/'.$user->foto_perfil, 'public/'.$user->foto_firma]);
 
+    }
+    public function files($file){
+        $path="private/{$file}";
+       if(Storage::exists($path)){
+        return Storage::response("private/$file");
+
+       }
+       else{
+           abort(404);
+       }
     }
 }

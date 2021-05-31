@@ -7,7 +7,7 @@
 <div class="container">
         <form method="POST" action="/escaleras/store" >
             @csrf
-     <h4>Crear Escaleras</h4>
+     <h4>Editar Escalera</h4>
     <div class="row">
                 <div class="col-xl-4  mb-4">
                 <p>Tipo</p>

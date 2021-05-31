@@ -5,13 +5,29 @@
 
 <br>
 <div class="container">
+    @if (session('status'))
+    <div style=" background-color:#b9f6ca" class="alert  alert-dismissible fade show" role="alert">
+    {{ session('status') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    @endif
         <form method="POST" action="/motocicletas/store" >
     @csrf
      <h4>Crear motocicletas</h4>
     <div class="row">
                 <div class="col-xl-4  mb-4">
                 <p>Nombre del propietario</p>
-                <input type="text" name="id_propietario" class="form-control" placeholder="Nombre del propietario">     
+                <select id="id_propietario" name="id_propietario" class="form-control" id="exampleFormControlSelect1"  >
+                <option value="">Ninguno</option>
+
+                @foreach($users as $user)
+                <option value="{{$user->id}}">{{$user->name}} {{$user->apellido}}</option>
+                @endforeach
+               
+              </select>
+               <!-- <input type="text" name="id_propietario" class="form-control" placeholder="Nombre del propietario">!-->
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Placa del vehiculo</p>

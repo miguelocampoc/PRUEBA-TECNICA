@@ -20,6 +20,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 </head>
 <body class="hold-transition sidebar-mini">
+
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -196,10 +197,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <li class="nav-item ">
             <a href="#" class="nav-link ">
-            <img src="{{asset('adminlte/img/user2-160x160.jpg') }}" class="mr-2" height="40px" width="40px;" style="border-radius:20px;"  alt="User Image">
+            <img src="/files/private/{{Auth::user()->foto_perfil }}"class="mr-2" height="40px" width="40px;" style="border-radius:20px;"  alt="User Image">
               <p>
-            <!-- {{ Auth::user()->name }} {{Auth::user()->apellido}}!-->
-           Administrador
+            {{ Auth::user()->name }} 
+      
            
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -504,7 +505,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ asset('/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/adminlte/js/adminlte.min.js') }}"></script>
-@include('usuarios.list_script')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+@yield('js')
+
 
 </body>
 </html>

@@ -21,7 +21,7 @@
         <div class="col-xl-4  mb-4">
     
         <p>Nombre:</p>
-        <input id="nombre" name="nombre" type="text" class="form-control" value="{{old('')}}" >
+        <input id="nombre" name="nombre" type="text" class="form-control" value="{{old('nombre')}}" >
         @error('nombre')
         <div  style="color:red;">{{ $message }}*</div>
         @enderror

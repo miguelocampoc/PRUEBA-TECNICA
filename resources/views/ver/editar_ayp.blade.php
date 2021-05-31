@@ -7,7 +7,7 @@
 <div class="container">
         <form method="POST" action="/arnesyaparejos/store" >
             @csrf
-     <h4>Crear Arnes y Aparejos</h4>
+     <h4>Editar Arnes y Aparejo</h4>
     <div class="row">
                 <div class="col-xl-4  mb-4">
                 <p>Propietario</p>

@@ -3,7 +3,7 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Arnes y Aparejos</h3>
-<form  enctype="multipart/form-data" action="/ReportesController/create_reporte_arnes" method="POST">
+<form  method="POST"   action="/Reporte/create_reporte_arnes">
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">

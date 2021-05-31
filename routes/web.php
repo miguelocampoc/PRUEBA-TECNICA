@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,12 +22,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/crear', 'UserController@create');
 Route::post('/usuarios/store', 'UserController@store');
-Route::post('/motocicletas/store', 'motocicletas@store');
-Route::post('/escaleras/store', 'escaleras@store');
-Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
-Route::post('/ReportesController/create_reporte_motocicletas', 'ReportesController@create_reporte_motocicletas');
-Route::post('/ReportesController/create_reporte_escaleras', 'ReportesController@create_reporte_escaleras');
-Route::post('/ReportesController/create_reporte_arnes', 'ReportesController@create_reporte_arnes');
+
+Route::post('/reportes/create_reporte_motocicletas', 'ReportesController@create_reporte_motocicletas');
+Route::post('/reportes/create_reporte_escaleras', 'ReportesController@create_reporte_escaleras');
+Route::post('/reportes/create_reporte_arnes', 'ReportesController@create_reporte_arnes');
 
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');
@@ -54,6 +53,7 @@ Route::get('/reportes/listar/escaleras', 'ReportesController@listar_escaleras');
 Route::get('/reportes/listar/arnes', 'ReportesController@listar_arnes');
 Route::patch('/reportes/update','ReportesController@update');
 Route::delete("/reportes/destroy", 'ReportesController@destroy');
+Route::get('/reportes/motocicletas', 'ReportesController@ver_reporte_motocicletas');
 
 
 /* Fin reportesController */
@@ -72,10 +72,26 @@ Route::get('/crear/motocicletas', 'ElementController@motocicletas');
 Route::get('/crear/escaleras', 'ElementController@escaleras');
 Route::get('/ver/arnesyaparejos', 'ElementController@listar_arnesyaparejos');
 Route::get('/ver/motocicletas', 'ElementController@listar_motocicletas');
-Route::get('/ver/escaleras', 'ElementController@listar_escaleras');
+Route::get('/escaleras/listar_all', 'ElementController@listar_escaleras_all');
+Route::get('/escaleras/listar_act', 'ElementController@listar_escaleras_act');
 
+Route::get('/ver/escaleras', 'ElementController@listar_escaleras');
+Route::get('/ver/motocicletas/editar/{id}', 'ElementController@editar_motocicletas');
+Route::get('/ver/escaleras/editar/{id}', 'ElementController@editar_escaleras');
+Route::get('/ver/arnesyaparejos/editar/{id}', 'ElementController@editar_ayp');
+
+
+/* Motocicletas,escaleras y arnes:store,update */
+Route::post('/motocicletas/store', 'motocicletas@store');
+Route::post('/escaleras/store', 'escaleras@store');
+Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
+
+/* Fin  Motocicletas,escaleras y arnes:store,update */
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', function () {
     return view('admin.dashboard');
 });
+Route::get('/files/private/{file}', 'UserController@files');
+
+

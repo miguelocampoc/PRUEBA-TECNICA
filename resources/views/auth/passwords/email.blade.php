@@ -2,23 +2,19 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class=" row justify-content-center align-items-center " style="height: 100vh;">
 
+        <div class="col-md-6">
+            <div class="card " style="background-color:#ede7f6">
+                <div class="card-header " style="text-align:center"> <img src="{{ asset('adminlte/img/LogoColomtel1.PNG') }}" width="200px"></img></div>
+                <div class="card-body ">
+                <p style="text-align:center">Recupera tu password, Ingresa tu correo para enviarte un email de reestablecimiento</p><span class="mb-2"></span>
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right" >Email:</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -31,11 +27,22 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+          
+
+                        <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                <div class="form-check">
+                                    
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4"> 
+                                <button type="submit" class="btn btn-primary btn btn-block">
+                                    Recupera tu contraseña
                                 </button>
+                             
                             </div>
                         </div>
                     </form>

@@ -86,7 +86,7 @@ class ReportesController extends Controller
             'criterio_aceptacion5'=>$request->criterio_aceptacion5,
 
         ];
-         
+         /*
         formatos::create([
             'id_user'=>Auth::user()->id,
             'categoria'=> 'arnesyaparejos',
@@ -94,7 +94,7 @@ class ReportesController extends Controller
             
             ]);
             return redirect('/reportes/crear_arnes')->with('status', 'creado exitosamente!');
-        
+         */
     }
     
     
@@ -112,7 +112,59 @@ class ReportesController extends Controller
         return view('reportes.edit');
 
     }
+    public function create_reporte_motocicletas(Request $request){
+        $attributes=[
+            '1'=>$request->placa,
+            '2'=>$request->marca,
+            '3'=>$request->modelo,
+            '4'=>$request->condcutor,
+            '5'=>$request->licencia_transito,
+            '6'=>$request->revision_tecnico,
+            '8'=>$request->fecha_vigente,
+            '9'=>$request->soat_vigente,
+            '10'=>$request->km_inicial,
+            '11'=>$request->km_final,
+            '12'=>$request->km_total,
+            '13'=>$request->inspeccionado,
+            '14'=>$request->cargo,
+            '15'=>$request->fecha,
+            '16'=>$request->estado_ruedas,
+            '17'=>$request->bateria,
+            '18'=>$request->luces,
+            '19'=>$request->espejos,
+            '20'=>$request->estado_cadena,
+            '21'=>$request->freno_delanteto,
+            '22'=>$request->freno_trasero,
+            '23'=>$request->bocina,
+            '24'=>$request->limieza,
+            '25'=>$request->vehiculo_organizado,
+            '26'=>$request->desinfeccion,
+            '27'=>$request->capacitacion,
+            '28'=>$request->consumo_bebidas,
+            '29'=>$request->trabajador_salud,
+            '30'=>$request->labrado_ruedas,
+            '31'=>$request->cambio_aceite,
+            '32'=>$request->cambio_filtro,
+            '33'=>$request->embrague,
+            '34'=>$request->kit_arrastre,
+            '35'=>$request->control_fugas,
+            '36'=>$request->amortiguadores,
+            '37'=>$request->exosto,
+            '38'=>$request->casco_chaleco_conductor,
+            '39'=>$request->caja_herramientas,
+            '40'=>$request->observaciones,
+            
 
+        ];
+
+        formatos::create([
+            'id_user'=>Auth::user()->id,
+            'categoria'=> 'motocicletas',
+            'attributes'=> json_encode($attributes, True)
+            
+            ]);
+            return redirect('/reportes/crear_motocicletas')->with('status', 'Reporte exitosamente!');
+    }
     
     public function update_reporte_motocicletas(Request $request, $id)
     {
@@ -171,6 +223,7 @@ class ReportesController extends Controller
     {
        
     }
+    
     public function update_reporte_arnes(Request $request, $id)
     {
         $attributes=[

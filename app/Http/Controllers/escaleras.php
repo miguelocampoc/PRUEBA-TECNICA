@@ -52,6 +52,8 @@ class escaleras extends Controller
             'tipo'=>$request->tipo,
             'codigo_serie'=>$request->codigo_serie,
             'estado'=>$request->estado,
+            'modified_at'=>'('.date('d-m-Y H:i:s').')'
+
             
             
         
