@@ -101,14 +101,17 @@ class motocicletas extends Controller
             'vigenciasoat'=> ['required'],
             
         ]); 
-        $motocicletas = MocoticletasM::find($id);
+        $motocicletas = MotocicletasM::find($id);
         $motocicletas ->placa=$request->placa;
         $motocicletas ->marca=$request->marca;
         $motocicletas ->modelo=$request->modelo;
         $motocicletas ->vigenciatecnicomecanica= $request->vigenciatecnicomecanica;
         $motocicletas ->vigenciasoat= $request->vigenciasoat;
         $motocicletas ->save();
+
+        return redirect('/ver/motocicletas')->with('status', 'Motocicleta editada exitosamente!');
     }
+
 
     /**
      * Remove the specified resource from storage.

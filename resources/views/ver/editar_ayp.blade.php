@@ -5,32 +5,53 @@
 
 <br>
 <div class="container">
-        <form method="POST" action="/arnesyaparejos/store" >
+        @if (session('status'))
+<div style=" background-color:#b9f6ca" class="alert  alert-dismissible fade show" role="alert">
+  {{ session('status') }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+@endif
+        <form method="POST" action="/arnesyaparejos/update/{{ $data->id }}" >
             @csrf
      <h4>Editar Arnes y Aparejo</h4>
     <div class="row">
                 <div class="col-xl-4  mb-4">
                 <p>Propietario</p>
                     <select id="id_propietario" name="id_propietario" class="form-control" id="exampleFormControlSelect1">
-                    <option value="">Ninguno</option>
-
-                    @foreach($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}} {{$user->apellido}}</option>
-                                     
-                    @endforeach 
-                    </select>                
+                    <option value="{{$propietario->id_propietario}}">{{$propietario->name}} {{$propietario->apellido}}</option>
+                    @foreach($usuarios as $usuario)
+                    @if($propietario->id_propietario!=$usuario->id)
+                    <option value="{{$usuario->id}}">{{$usuario->name}} {{$usuario->apellido}}</option>
+                     @endif
+                    @endforeach
+                    </select>   
+                    @error('id_propietario')
+                    <div style="color:red">{{ $message }}</div>
+                    @enderror             
                  </div>
                 <div class="col-xl-4  mb-4">
                 <p>Serial</p>
-                <input type="text" name="serial" class="form-control" placeholder="Serial">     
+                <input type="text" name="serial" class="form-control" placeholder="Serial" value="{{ $data->serial }}">     
                 </div>
+                @error('serial')
+                <div style="color:red">{{ $message }}</div>
+                @enderror
                 <div class="col-xl-4  mb-4">
                 <p>Estado</p>
-                            <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
-                                    <option value="activo">Activo</option>
-                                    <option value="inactivo">Inactivo</option>
-                    
-                            </select>                
+                        <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
+                                        <option value="{{$data->estado}}">{{$data->estado}}</option>
+                                        @if($data->estado!="activo")
+                                       <option value="activo">activo</option>
+                                       @endif
+                                       @if($data->estado!="inactivo")
+                                       <option value="inactivo">inactivo</option>
+                                       @endif
+                            </select>  
+                            @error('estado')
+                            <div style="color:red">{{ $message }}</div>
+                            @enderror              
                  </div>
                 <div class="col-xl-4  mb-4">
                 <p>Tipo</p>

@@ -5,6 +5,14 @@
 
 <br>
 <div class="container">
+        @if (session('status'))
+        <div style=" background-color:#b9f6ca" class="alert  alert-dismissible fade show" role="alert">
+          {{ session('status') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        @endif
 <h3>Arnes y Aparejos Registrados</h3>
 <br>
         <table id="table_id" class="table table-striped table-bordered" style="width:100%">

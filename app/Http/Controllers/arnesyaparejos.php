@@ -103,6 +103,7 @@ class arnesyaparejos extends Controller
         $Arnesyaparejos->estado=$request->estado;
         $Arnesyaparejos->tipo=$request->tipo;
         $Arnesyaparejos->save();
+        return redirect('/ver/arnesyaparejos')->with('status', 'Arnes modificado exitosamente!');
     
     }
 

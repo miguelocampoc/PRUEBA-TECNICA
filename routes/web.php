@@ -27,6 +27,7 @@ Route::post('/reportes/create_reporte_motocicletas', 'ReportesController@create_
 Route::post('/reportes/create_reporte_escaleras', 'ReportesController@create_reporte_escaleras');
 Route::post('/reportes/create_reporte_arnes', 'ReportesController@create_reporte_arnes');
 
+
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');
 Route::get('/usuarios/listar_all', 'UserController@listar_all');
@@ -85,6 +86,10 @@ Route::get('/ver/arnesyaparejos/editar/{id}', 'ElementController@editar_ayp');
 Route::post('/motocicletas/store', 'motocicletas@store');
 Route::post('/escaleras/store', 'escaleras@store');
 Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
+Route::post('/motocicletas/update/{id}', 'motocicletas@update');
+Route::post('/escaleras/update/{id}', 'escaleras@update');
+Route::post('/arnesyaparejos/update/{id}', 'arnesyaparejos@update');
+
 
 /* Fin  Motocicletas,escaleras y arnes:store,update */
 

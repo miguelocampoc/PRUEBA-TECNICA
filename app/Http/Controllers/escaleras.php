@@ -74,8 +74,9 @@ class escaleras extends Controller
         $escaleras->codigo_serie=$request->codigo_serie;
         $escaleras->estado=$request->estado;
         $escaleras->save();
+        return redirect('/ver/escaleras')->with('status', 'Escalera modificada exitosamente!');
     }
-
+    
     }
 
     /**

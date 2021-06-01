@@ -5,7 +5,7 @@
 
 <br>
 <div class="container">
-        <form method="POST" action="" >
+        <form method="POST" action="/motocicletas/update/{{ $data->id }}"  >
     @csrf
      <h4>Editar motocicleta</h4>
     <div class="row">
@@ -24,22 +24,37 @@
                 <div class="col-xl-4  mb-4">
                 <p>Placa del vehiculo</p>
                 <input type="text" name="placa" class="form-control" placeholder="Nombre del propietario" value="{{$data->placa}}">     
+                @error('placa')
+                <div style="color:red">{{ $message }}</div>
+                @enderror
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Marca</p> 
-                <input type="text" name="marca" class="form-control" placeholder="Nombre del propietario"  value="{{$data->marca}}">     
+                <input type="text" name="marca" class="form-control" placeholder="Nombre del propietario"  value="{{$data->marca}}">
+                @error('placa')
+                <div style="color:red">{{ $message }}</div>
+                @enderror     
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Modelo</p>
-                <input type="text" name="modelo" class="form-control" placeholder="Nombre del propietario" value="{{$data->modelo}}">     
+                <input type="text" name="modelo" class="form-control" placeholder="Nombre del propietario" value="{{$data->modelo}}">  
+                @error('modelo')
+                <div style="color:red">{{ $message }}</div>
+                @enderror   
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Vigencia Tecnomecanica</p>
-                <input type="date"name="vigenciatecnicomecanica" class="form-control" placeholder="Nombre del propietario" value="{{$data->vigenciatecnicomecanica}}">     
+                <input type="date"name="vigenciatecnicomecanica" class="form-control" placeholder="Nombre del propietario" value="{{$data->vigenciatecnicomecanica}}"> 
+                @error('vigenciatecnicomecanica')
+                <div style="color:red">{{ $message }}</div>
+                @enderror    
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Vigencia Soat</p>
-                <input type="date" name="vigenciasoat" class="form-control" placeholder="Nombre del propietario" value="{{$data->vigenciasoat}}">     
+                <input type="date" name="vigenciasoat" class="form-control" placeholder="Nombre del propietario" value="{{$data->vigenciasoat}}"> 
+                @error('vigenciasoat')
+                <div style="color:red">{{ $message }}</div>
+                @enderror    
                 </div>
          
     </div>

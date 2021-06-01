@@ -12,10 +12,10 @@
                 <div class="col-xl-4  mb-4">
                 <p>Tipo</p>
                 <select id="tipo" name="tipo" class="form-control" id="exampleFormControlSelect1"  >
-                <option value="">Ninguno</option>
-                <option value="Escalera doble seccion">Escalera doble seccion</option>
-                <option value="Escalera de Tijeras">Escalera de Tijeras</option>
-                <option value="Escalera Plegable">Escalera Plegable</option>
+                <option value="ninguno">ninguno</option>
+                <option value="escalera_doble">escalera doble seccion</option>
+                <option value="escalera_tijera">escalera de Tijeras</option>
+                <option value="escalera_plegable">escalera Plegable</option>
 
                 </select>              
                 </div>

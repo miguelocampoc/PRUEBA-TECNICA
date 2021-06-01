@@ -15,7 +15,7 @@
                     <option value="">Ninguno</option>
 
                     @foreach($users as $user)
-                            <option value="{{$user->id}}">{{$user->name}} {{$user->apellido}}</option>
+                <option value="{{$user->id}}">{{$user->name}} {{$user->apellido}}</option>
                                      
                     @endforeach 
                     </select>                

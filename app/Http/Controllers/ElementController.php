@@ -86,13 +86,29 @@ class ElementController extends Controller
     public function editar_ayp($id){
         return view('ver.editar_ayp',[
             'view_arnesyaparejos'=>'active',
-            'users'=>user::where('rol','=','tecnico')->where('estado','=','activo')->get()
+            'data'=> arnesyaparejosM::findOrFail($id),
+            'propietario'=>arnesyaparejosM::select('arnesyaparejos.id_propietario','users.name','users.apellido')
+            ->join('users','users.id','=','arnesyaparejos.id_propietario')
+            ->where('arnesyaparejos.id','=',$id)
+            ->first(),
+             'usuarios'=>User::select('users.id','users.name','users.apellido')
+             ->where('rol','=','tecnico')
+             ->where('estado','=','activo')
+             ->get()
+    
 
             ]);
     }
     public function editar_escaleras($id){
         return view('ver.editar_escaleras',[
-            'view_escaleras'=>'active'
+            'view_escaleras'=>'active',
+            'data'=> escalerasM::findOrFail($id),
+             
+             'usuarios'=>User::select('users.id','users.name','users.apellido')
+             ->where('rol','=','tecnico')
+             ->where('estado','=','activo')
+             ->get()
+    
 
 
             ]);
