@@ -9,23 +9,14 @@
         <div class="col-xl-4  mb-4">
                 <p>N° de serie arnes:</p>
                 <input id="n_serie_arnes" name="n_serie_arnes" type="text" class="form-control">
-                @error('n_serie_arnes')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>N° de serie eslinga:</p> 
                 <input id="n_serie_eslinga" name="n_serie_eslinga" type="text" class="form-control">
-                @error('n_serie_arnes')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>N° eslinga:</p>
                 <input id="n_eslinga" name="n_eslinga"  class="form-control">
-                @error('eslinga')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
                 </div>
          </div>
 
