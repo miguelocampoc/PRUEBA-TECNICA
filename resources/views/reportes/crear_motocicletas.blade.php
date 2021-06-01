@@ -4,36 +4,36 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Motocicletas</h3>
-<form id="formulario">
+<form  method="POST"   action="/reportes/create_reporte_motocicletas">
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">
                 <p>Placa</p>
                 <input id="placa" name="placa" type="text" class="form-control">
-                @error('nombre')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+               
+               
+               
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Marca</p> 
                 <input id="marca" name="marca" type="text" class="form-control">
-                @error('apellido')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+               
+                
+               
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>Modelo:</p>
                 <input id="modelo" name="modelo" type="text" class="form-control">
-                @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                
+                
+                
                 </div>
                 <div class="col-xl-4 mb-4">
                 <p>Conductor:</p>
                 <input id="conductor" name="conductor" type="text" class="form-control">
-                @error('email')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
+                
+                
+               
                 </div>
                 <div class="col-xl-4  mb-4">
                 <p>Licencia de transito</p>
@@ -327,7 +327,7 @@
                                 <label for="exampleFormControlTextarea1">Registre sus observaciones</label>
                                 <textarea name="observaciones" class="form-control" id="observaciones" rows="3"></textarea>
                         </div>
-             <button type="button" class="btn btn-primary" onclick="registrar_inspeccion()"> Registrar Inspeccion</button>
+                        <button class="btn btn-primary" onclick="RegisterUser()"> Registrar </button>
              <br><br>
           </div>
          
