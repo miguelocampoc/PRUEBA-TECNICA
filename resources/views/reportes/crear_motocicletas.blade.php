@@ -341,8 +341,7 @@ function registrar_inspeccion(){
        var formulario= new FormData(document.getElementById('formulario'))
         
        console.log(formulario.get('placa'));
-       /*
-      var  url="/reportes/create_reporte_motocicletas";
+        var  url="/reportes/create_reporte_motocicletas";
         Swal.fire({
                 title: '¿Estas seguro de editar la informacion?',
                 icon: 'warning',
@@ -354,7 +353,9 @@ function registrar_inspeccion(){
                 cancelButtonText:'<span>Cancelar</span> '
                 }).then((result) => {
                 if (result.isConfirmed) {
-                
+                        axios.post(url,formulario).then(response =>{
+                                $("#formulario")[0].reset();
+                        });
                     Swal.fire(
                     'Edicion exitosa',
                     '<span style="color:white">Sus cambios han sido guardados</span>',
@@ -363,7 +364,7 @@ function registrar_inspeccion(){
 
                 }
                 })
-                */
+                
 
 }
 

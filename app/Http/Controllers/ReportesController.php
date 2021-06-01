@@ -30,8 +30,12 @@ class ReportesController extends Controller
     public function crear_escaleras(){
         return view('reportes.crear_escaleras',['crear_escaleras'=>'active']);
     }
-    public function editar_motocicletas(){
-        return view('reportes.editar_motocicletas');
+    public function editar_motocicletas($id){
+        $reporte_motocicleta = User::find($id);
+        return view('reportes.editar_motocicletas',[
+            'listar_motocicletas'=>'active',
+           
+        ]);
     }
     public function editar_arnes(){
         return view('reportes.editar_arnes');
@@ -53,48 +57,48 @@ class ReportesController extends Controller
     public function create_reporte_arnes(Request $request)
     {
         $attributes=[
-            'n_serie_arnes'=>$request->n_serie_arnes,
-            'n_serie_eslinga'=>$request->n_serie_eslinga,
-            'n_eslinga'=>$request->n_eslinga,
-            'argolla_d_pectoral'=>$request->argolla_d_pectoral,
-            'argolla_d_dorsal'=>$request->argolla_d_dorsal,
-            'argolla_d_lateral'=>$request->argolla_d_lateral,
-            'soporte_dorsal_central'=>$request->soporte_dorsal_central,
-            'eslabones_ajuste_pectoral'=>$request->eslabones_ajuste_pectoral,
-            'eslabones_ajuste_pelvico'=>$request->eslabones_ajuste_pelvico,
-            'eslabones_ajuste_muslos'=>$request->eslabones_ajuste_muslos,
-            'silla_trasera'=>$request->silla_trasera,
-            'costuras_general'=>$request->costuras_general,
-            'criterio_aceptacion'=>$request->criterio_aceptacion,
-            'cuerpo_eslinga'=>$request->cuerpo_eslinga,
-            'ganchos_dobles'=>$request->ganchos_dobles,
-            'absorbente_choque'=>$request->absorbente_choque,
-            'costuras_general2'=>$request->costuras_general2,
-            'criterio_aceptacion2'=>$request->criterio_aceptacion2,
-            'cuerpo_eslinga2'=>$request->cuerpo_eslinga2,
-            'ganchos_dobles2'=>$request->ganchos_dobles2,
-            'costuras_general2'=>$request->costuras_general2,
-            'criterio_aceptacion3'=>$request->criterio_aceptacion3,
-            'cuerpo_adaptador'=>$request->cuerpo_adaptador,
-            'argollas'=>$request->argollas,
-            'costuras_general3'=>$request->costuras_general3,
-            'criterio_aceptacion4'=>$request->criterio_aceptacion4,
-            'argolla_superior'=>$request->argolla_superior,
-            'tambor'=>$request->tambor,
-            'gancho_inferior'=>$request->gacho_inferior,
-            'costuras_general4'=>$request->costuras_general4,
-            'criterio_aceptacion5'=>$request->criterio_aceptacion5,
+            '1'=>$request->n_serie_arnes,
+            '2'=>$request->n_serie_eslinga,
+            '3'=>$request->n_eslinga,
+            '4'=>$request->argolla_d_pectora,
+            '5'=>$request->argolla_d_dorsal,
+            '6'=>$request->argolla_d_lateral,
+            '7'=>$request->soporte_dorsal_central,
+            '8'=>$request->eslabones_ajuste_pectoral,
+            '9'=>$request->eslabones_ajuste_pelvico,
+            '10'=>$request->eslabones_ajuste_muslos,
+            '11'=>$request->silla_trasera,
+            '12'=>$request->costuras_general,
+            '13'=>$request->criterio_aceptacion,
+            '14'=>$request->cuerpo_eslinga,
+            '15'=>$request->ganchos_dobles,
+            '16'=>$request->absorbente_choque,
+            '17'=>$request->costuras_general2,
+            '18'=>$request->criterio_aceptacion2,
+            '19'=>$request->cuerpo_eslinga2,
+            '20'=>$request->ganchos_dobles2,
+            '21'=>$request->costuras_general2,
+            '22'=>$request->criterio_aceptacion3,
+            '23'=>$request->cuerpo_adaptador,
+            '24'=>$request->argollas,
+            '25'=>$request->costuras_general3,
+            '26'=>$request->criterio_aceptacion4,
+            '27'=>$request->argolla_superior,
+            '28'=>$request->tambor,
+            '29'=>$request->gancho_inferior,
+            '30'=>$request->costuras_general4,
+            '31'=>$request->criterio_aceptacion5,
 
         ];
-         /*
+        
         formatos::create([
             'id_user'=>Auth::user()->id,
             'categoria'=> 'arnesyaparejos',
             'attributes'=> json_encode($attributes, True)
             
             ]);
-            return redirect('/reportes/crear_arnes')->with('status', 'creado exitosamente!');
-         */
+           // return redirect('/reportes/crear_arnes')->with('status', 'creado exitosamente!');
+         
     }
     
     
