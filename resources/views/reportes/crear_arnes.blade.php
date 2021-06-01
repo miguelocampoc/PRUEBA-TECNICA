@@ -4,7 +4,11 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Arnes y Aparejos</h3>
+<<<<<<< HEAD
 <form  method="POST"   action="/reportes/create_reporte_arnes">
+=======
+<form id="formulario">
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">
@@ -26,7 +30,11 @@
             <div class="col-xl-4  mb-4">
                 <p>Argolla en D pectoral -1 (Elem. para ascenso y descenso controlado)
                         <select id="argolla_d_pectora" name="argolla_d_pectora" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                         <option value="">-----</option>
+=======
+                        <option value="">-------</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         <option value="B-Bueno">B-Bueno</option>
                         <option value="M-Malo">M-Malo</option>
                         <option value="Na-No aplica">Na-No aplica</option>
@@ -38,10 +46,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Argolla en D dorsal -1 (Elem. para detección de caídas)
                         <select id="argolla_d_dorsal" name="argolla_d_dorsal" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                  <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -49,10 +64,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Argollas en D laterales en cintura-2 (Elem. para Posicionamiento)
                         <select id="argolla_d_lateral" name="argolla_d_lateral" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                 <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -60,10 +82,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Soporte dorsal central - 1 
                         <select id="soporte_dorsal_central" name="soporte_dorsal_central" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -71,10 +100,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Eslabones de ajuste rapido pectoral-2 
                         <select id="eslabones_ajuste_pectoral" name="eslabones_ajuste_pectoral" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -82,10 +118,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Eslabones de ajuste rapido pelvico-2
                         <select id="eslabones_ajuste_pelvico" name="eslabones_ajuste_pelvico" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -93,10 +136,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Hebillas de tensión en los muslos-2 
                         <select id="eslabones_ajuste_muslos" name="eslabones_ajuste_muslos" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -104,10 +154,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Silla trasera - 1 
                         <select id="silla_trasera" name="silla_trasera" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -115,10 +172,17 @@
                 <div class="col-xl-4  mb-4">
                 <p>Costuras en general 
                         <select id="costuras_general" name="costuras_general" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
                         
@@ -126,8 +190,13 @@
                 <div class="col-xl-4  mb-4">
                 <h5>Criterio de aceptacion</h5>
                         <select id="criterio_aceptacion" name="criterio_aceptacion" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="Aceptado">Aceptado</option>
+=======
+                        <option value="">-------</option>
+                        <option value="Aceptado">Aceptado</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         <option value="No aceptado">No aceptado</option>                
                         </select>
                         
@@ -138,49 +207,83 @@
           <div class="row">
             <div class="col-xl-4 mb-4">
             <p>Cuerpo de eslinga
+<<<<<<< HEAD
                         <select id="cuerpo_eslinga" name="cuerpo_eslinga" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <select id="rolcuerpo_eslinga" name="rolcuerpo_eslinga" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Ganchos doble seguros 
                         <select id="ganchos_dobles" name="ganchos_dobles" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Absorbente de choque
                         <select id="absorbente_choque" name="absorbente_choque" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Costuras en general 
                         <select id="costuras_general2" name="costuras_general2" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4  mb-4">
                 <h5>Criterio de aceptacion</h5>
                         <select id="criterio_aceptacion2" name="criterio_aceptacion2" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="Aceptado">Aceptado</option>
+=======
+                        <option value="">-------</option>
+                        <option value="Aceptado">Aceptado</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         <option value="No aceptado">No aceptado</option>                
                         </select>
                         
@@ -191,29 +294,52 @@
           <div class="col-xl-4 mb-4">
             <p>Cuerpo de eslinga  
                         <select id="cuerpo_eslinga2" name="cuerpo_eslinga2" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+                
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Ganchos doble seguros 
                         <select id="ganchos_dobles2" name="ganchos_dobles2" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Costuras en general 
+<<<<<<< HEAD
                         <select id="costuras_general3" name="costuras_general3" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <select id="costuras_general2" name="costuras_general2" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
@@ -221,8 +347,13 @@
           <div class="col-xl-4  mb-4">
                 <h5>Criterio de aceptacion</h5>
                         <select id="criterio_aceptacion3" name="criterio_aceptacion3" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="Aceptado">Aceptado</option>
+=======
+                        <option value="">-------</option>
+                        <option value="Aceptado">Aceptado</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         <option value="No aceptado">No aceptado</option>                
                         </select>
                         
@@ -233,39 +364,67 @@
           <div class="col-xl-4 mb-4">
             <p>Cuerpo del adptador 
                         <select id="cuerpo_adaptador" name="cuerpo_adaptador" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Argollas 
                         <select id="argollas" name="argollas" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Costuras en general 
+<<<<<<< HEAD
                         <select id="costuras_general4" name="costuras_general4" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <select id="costuras_general3" name="costuras_general3" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
           <div class="col-xl-4  mb-4">
                 <h5>Criterio de aceptacion</h5>
                         <select id="criterio_aceptacion4" name="criterio_aceptacion4" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="Aceptado">Aceptado</option>
                         <option value="No Aceptado">No aceptado</option>                
+=======
+                        <option value="">-------</option>
+                        <option value="Aceptado">Aceptado</option>
+                        <option value="No aceptado">No aceptado</option>                
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         </select>
                         
                 </div>
@@ -276,38 +435,69 @@
              <div class="col-xl-4 mb-4">
             <p>Argolla superior 
                         <select id="argolla_superior" name="argolla_superior" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+                
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Tambor 
                         <select id="tambor" name="tambor" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Gancho inferior 
                         <select id="gancho_inferior" name="gancho_inferior" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+                
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         </select>
             </div>
             <div class="col-xl-4 mb-4">
             <p>Costuras en general 
+<<<<<<< HEAD
                         <select id="costuras_general5" name="costuras_general5" class="form-control" id="exampleFormControlSelect1">
                                         <option value="">-----</option>
                                 <option value="B-Bueno">B-Bueno</option>
                                 <option value="M-Malo">M-Malo</option>
                                 <option value="Na-No aplica">Na-No aplica</option>
+=======
+                        <select id="costuras_general4" name="costuras_general4" class="form-control" id="exampleFormControlSelect1">
+                        <option value="">-------</option>
+                        <option value="B-Bueno">B-Bueno</option>
+                        <option value="M-Malo">M-Malo</option>
+                        <option value="Na-No aplica">Na-No aplica</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                 
                         </select>
             </div>
@@ -315,8 +505,13 @@
              <div class="col-xl-4  mb-4">
                 <h5>Criterio de aceptacion</h5>
                         <select id="criterio_aceptacion5" name="criterio_aceptacion5" class="form-control" id="exampleFormControlSelect1">
+<<<<<<< HEAD
                                         <option value="">-----</option>
                                 <option value="Aceptado">Aceptado</option>
+=======
+                        <option value="">-------</option>
+                        <option value="Aceptado">Aceptado</option>
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189
                         <option value="No aceptado">No aceptado</option>                
                         </select>
                         
@@ -324,7 +519,7 @@
              
              
              </div>
-             <button class="btn btn-primary" onclick="RegisterUser()"> Registrar </button>
+             <button type="button" class="btn btn-primary" onclick="crear_reportes_arnes()"> Registrar </button>
             <br><br>
           </div>
          
@@ -332,4 +527,41 @@
 
 </form>
 </div>
+<<<<<<< HEAD
 @endsection
+=======
+        @section('js')
+        <script>
+           function crear_reportes_arnes(){
+             var url="/reportes/create_reporte_arnes";      
+             var formulario= new FormData(document.getElementById('formulario'))
+             Swal.fire({
+                title: '¿Estas seguro de editar la informacion?',
+                icon: 'warning',
+                showCancelButton: true,
+                showCloseButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: '<span>Acepto</span> ',
+                cancelButtonText:'<span>Cancelar</span> '
+                }).then((result) => {
+                if (result.isConfirmed) {
+                        axios.post(url,formulario).then(response =>{
+                                $("#formulario")[0].reset();
+                        });
+                    Swal.fire(
+                    'Edicion exitosa',
+                    '<span style="color:white">Sus cambios han sido guardados</span>',
+                    'success'
+                    );
+
+                }
+                })
+           }
+
+
+        </script>
+        @endsection
+@endsection
+
+>>>>>>> c0096fe42d33f6d1245e1b4a23c1593362acd189

@@ -164,10 +164,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        
+        $reportes_motocicletas=User::findOrFail($id);
         return view('usuarios.edit',[
             'listar'=>'active',
-             'user'=>User::findOrFail($id)
+             'user'=>
             ]);
 
     }

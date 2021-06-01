@@ -30,8 +30,12 @@ class ReportesController extends Controller
     public function crear_escaleras(){
         return view('reportes.crear_escaleras',['crear_escaleras'=>'active']);
     }
-    public function editar_motocicletas(){
-        return view('reportes.editar_motocicletas');
+    public function editar_motocicletas($id){
+        $reporte_motocicleta = User::find($id);
+        return view('reportes.editar_motocicletas',[
+            'listar_motocicletas'=>'active',
+           
+        ]);
     }
     public function editar_arnes(){
         return view('reportes.editar_arnes');
@@ -221,7 +225,7 @@ class ReportesController extends Controller
             '21'=>$request->freno_delanteto,
             '22'=>$request->freno_trasero,
             '23'=>$request->bocina,
-            '24'=>$request->limieza,
+            '24'=>$request->limpieza,
             '25'=>$request->vehiculo_organizado,
             '26'=>$request->desinfeccion,
             '27'=>$request->capacitacion,
