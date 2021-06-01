@@ -1,7 +1,6 @@
 
 @extends('admin.layout')
 @section('content')
-<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 <style>
 .hidden{
     display:none;

@@ -1,5 +1,6 @@
 @extends('admin.layout')
 @section('content')
+
 <br>
 <div class="container">
 <h3 >Crear inspeccion escaleras</h3>
