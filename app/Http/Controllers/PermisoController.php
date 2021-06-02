@@ -43,7 +43,9 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+
+        
     }
     
 
