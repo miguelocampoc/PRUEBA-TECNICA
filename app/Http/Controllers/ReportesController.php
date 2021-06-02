@@ -43,12 +43,21 @@ class ReportesController extends Controller
          echo $formatos->attributes;
        
     }
-    public function editar_arnes(){
-        return view('reportes.editar_arnes');
+    public function editar_arnesyaparejos($id){
+        $formatos = formatos::findOrFail($id);
+        return view('reportes.editar_arnes',
+        [
+            'listar_arnes'=>'active',
+             'id'=>$id
+        
+        ]
+
+       );
     }
     public function editar_escaleras($id){
         $formatos = formatos::findOrFail($id);
         return view('reportes.editar_escaleras',[
+            'listar_escaleras'=>'active',
             'id'=>$id
         ]);
     }
@@ -69,7 +78,7 @@ class ReportesController extends Controller
             'n_serie_arnes'=>$request->n_serie_arnes,
             'n_serie_eslinga'=>$request->n_serie_eslinga,
             'n_eslinga'=>$request->n_eslinga,
-            'argolla_d_pectoral'=>$request->argolla_d_pectoral,
+            'argolla_d_pectora'=>$request->argolla_d_pectora,
             'argolla_d_dorsal'=>$request->argolla_d_dorsal,
             'argolla_d_lateral'=>$request->argolla_d_lateral,
             'soporte_dorsal_central'=>$request->soporte_dorsal_central,
@@ -112,25 +121,23 @@ class ReportesController extends Controller
     
     public function create_reporte_escaleras(Request $request){
         $attributes=[
-            '1'=>$request->trabajo,
-            '2'=>$request->tipo_escalera,
-            '3'=>$request->fecha,
-            '4'=>$request->largueros,
-            '5'=>$request->peldaños,
-            '6'=>$request->union_peldaños,
-            '7'=>$request->zapatas,
-            '8'=>$request->piezas_ajuste,
-            '9'=>$request->aseo_escalera,
-            '10'=>$request->identificacion,
-            '11'=>$request->señalizacion,
-            '12'=>$request->brazos_antiapertura,
-            '13'=>$request->ganchos_trabapeldaños,
-            '14'=>$request->guias_externas_union,
-            '15'=>$request->obervaciones,
-            '16'=>$request->conclusion,
-            '17'=>$request->justificacion,
-            
-            
+            'tb'=>$request->trabajo,
+            'ti'=>$request->tipo_escalera,
+            'fe'=>$request->fecha,
+            'la'=>$request->largueros,
+            'pe'=>$request->peldaños,
+            'up'=>$request->union_peldaños,
+            'za'=>$request->zapatas,
+            'pa'=>$request->piezas_ajuste,
+            'ae'=>$request->aseo_escalera,
+            'id'=>$request->identificacion,
+            'se'=>$request->señalizacion,
+            'ba'=>$request->brazos_antiapertura,
+            'ga'=>$request->ganchos_trabapeldaños,
+            'geu'=>$request->guias_externas_union,
+            'obs'=>$request->observaciones,
+            'con'=>$request->conclusion,
+            'jus'=>$request->justificacion,     
 
         ];
 
@@ -298,7 +305,7 @@ class ReportesController extends Controller
             'n_serie_arnes'=>$request->n_serie_arnes,
             'n_serie_eslinga'=>$request->n_serie_eslinga,
             'n_eslinga'=>$request->n_eslinga,
-            'argolla_d_pectoral'=>$request->argolla_d_pectoral,
+            'argolla_d_pectora'=>$request->argolla_d_pectora,
             'argolla_d_dorsal'=>$request->argolla_d_dorsal,
             'argolla_d_lateral'=>$request->argolla_d_lateral,
             'soporte_dorsal_central'=>$request->soporte_dorsal_central,

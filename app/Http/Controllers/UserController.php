@@ -167,11 +167,7 @@ class UserController extends Controller
         $user=User::findOrFail($id);
         return view('usuarios.edit',[
             'listar'=>'active',
-<<<<<<< HEAD
              
-=======
-             'user'=> $user
->>>>>>> 630fd5fda1cdd26d1b3089b095b8e12cd5541d5e
             ]);
 
     }
