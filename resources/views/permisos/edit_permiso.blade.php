@@ -303,10 +303,16 @@
                         </form>
                         </div>
                 </div>
-                
-                  <button value="aprobar" name="estado" class="btn btn-primary"> Aprobar</button>
-                  <button value="no aprobado" name="estado" class="btn btn-primary">  No Aprobar</button>
-
+                <h5>Estado</h5>
+                <div class="row  ">
+                <select id="estado" name="estado" class="form-control">
+                                   <option value="aprobado">Aprobado</option>
+                                   <option value="no aprobado">No aprobado</option>  
+   
+                                </select> 
+                </div>
+                 <br>
+                  <button type="submit" class="btn btn-primary"> Editar permiso</button>
                   <br><br>
 </div>
 </form>
