@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class permisos_obras extends Model
 {
     public $fillable = [
-        'id_user', 'estado','titulo','created_at','updated_at','evidencias','attributes'
+        'id_user', 'estado','created_at','updated_at','evidencias','attributes'
      ]; 
 }

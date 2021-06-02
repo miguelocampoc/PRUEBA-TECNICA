@@ -126,7 +126,6 @@ class PermisoController extends Controller
         permisos_obras::create([
             'id_user'=>Auth::user()->id,
             'estado'=> 'no aprobado',
-            'titulo'=>$request->titulo,
             'attributes'=> json_encode($attributes, True)
             
             ]);
@@ -206,7 +205,6 @@ class PermisoController extends Controller
         ];
         $permiso = permisos_obras::find($id);
         $permiso->estado=$request->estado;
-        $permiso->titulo=$request->titulo;
         $permiso->attributes=json_decode($attributes, True);
         $permiso->save();
         return redirect('/permisos/editar')->with('status', 'Permiso modificado exitosamente!');
