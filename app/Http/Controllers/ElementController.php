@@ -142,11 +142,27 @@ class ElementController extends Controller
          ->get()
 
      ]);
+
+     
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
    
+}
+public function editar_reporte_motocicletas($id){
+
+    return view('reportes.editar_motocicletas',[
+        
+        'view_motocicletas'=>'active',
+         'data'=> formatos::findOrFail($id),
+         
+         'usuarios'=>User::select('users.id','users.name','users.apellido')
+         ->where('rol','=','tecnico')
+         ->where('estado','=','activo')
+         ->get()
+
+     ]);
 }
 }
