@@ -4,7 +4,7 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Motocicletas</h3>
-<form  method="POST"   action="/reportes/create_reporte_motocicletas">
+<form id="formulario"> 
 @csrf
 <div class="row">
         <div class="col-xl-4  mb-4">
@@ -327,7 +327,7 @@
                                 <label for="exampleFormControlTextarea1">Registre sus observaciones</label>
                                 <textarea name="observaciones" class="form-control" id="observaciones" rows="3"></textarea>
                         </div>
-                        <button class="btn btn-primary" onclick="RegisterUser()"> Registrar </button>
+                        <button type="button" class="btn btn-primary" onclick="registrar_inspeccion()"> Registrar </button>
              <br><br>
           </div>
          

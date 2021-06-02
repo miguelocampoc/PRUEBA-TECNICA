@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\motocicletas;
+
 use Illuminate\Http\Request;
 use App\User;
 use App\MotocicletasM;
 use App\escalerasM;
 use App\arnesyaparejosM;
+use App\permisos_obras;
+
 class ElementController extends Controller
 {
     /**
@@ -126,10 +128,25 @@ class ElementController extends Controller
    ->get()
     ); 
    }
+
+   public function editar_permisos($id){
+
+    return view('permisos.edit',[
+        
+        'view_permisos'=>'active',
+         'data'=> permisos_obras::findOrFail($id),
+         
+         'usuarios'=>User::select('users.id','users.name','users.apellido')
+         ->where('rol','=','tecnico')
+         ->where('estado','=','activo')
+         ->get()
+
+     ]);
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
    
+}
 }

@@ -324,7 +324,7 @@
              
              
              </div>
-             <button type="button" class="btn btn-primary" onclick="crear_reportes_arnes()"> Registrar </button>
+             <button type="submit" class="btn btn-primary" onclick="crear_reportes_arnes()"> Registrar </button>
             <br><br>
           </div>
          

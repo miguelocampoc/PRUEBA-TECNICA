@@ -47,6 +47,8 @@ Route::get('/reportes/crear_motocicletas', 'ReportesController@crear_motocicleta
 Route::get('/reportes/crear_escaleras', 'ReportesController@crear_escaleras');
 Route::get('/reportes/crear_arnes', 'ReportesController@crear_arnes');
 Route::get('/reportes/editar/motocicletas/{id}', 'ReportesController@editar_motocicletas');
+Route::get('/reportes/get_reporte_id/{id}', 'ReportesController@get_reporte_motocicleta_id');
+
 Route::get('/reportes/editar/escaleras', 'ReportesController@editar_escaleras');
 Route::get('/reportes/editar/arnes', 'ReportesController@editar_arnes');
 Route::get('/reportes/listar/motocicletas', 'ReportesController@listar_motocicletas');
@@ -65,6 +67,8 @@ Route::get('/permisos/editar', 'PermisoController@edit');
 Route::get('/permisos/listar', 'PermisoController@list');
 Route::patch('/permisos/update','PermisoController@update');
 Route::delete("/reportes/destroy", 'PermisoController@destroy');
+Route::post('/permisos/store', 'PermisoController@store');
+Route::post('/permisos/update/{id}', 'PermisoController@store');
 /* Fin PermisoController */
 
 /*ElementController*/

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\permisos_obras;
+use Illuminate\Support\Facades\Auth;
+use function GuzzleHttp\json_encode;
 class PermisoController extends Controller
 {
     /**
@@ -44,9 +46,54 @@ class PermisoController extends Controller
     public function store(Request $request)
     {
         
-
-        
+        $attributes=[
+            'empresa'=>$request->empresa,
+            'ciudad'=>$request->ciudad,
+            'area_proceso'=>$request->Area_proceso,
+            'fecha'=>$request->fecha,
+            'lugar'=>$request->lugar,
+            'hora'=>$request->hora,
+            'ubicacion'=>$request->ubicacion,
+            'altura'=>$request->altura,
+            'procedimiento'=>$request->procedimiento,
+            'elementos'=>$request->elementos,
+            'personal_capacitado'=>$request->personal_capacitado,
+            'verificacion'=>$request->verificacion,
+            'area_limpia'=>$request->area_limpia,
+            'delimitacion'=>$request->delimitacion,
+            'casco_burbuquejo'=>$request->casco_burbuquejo,
+            'guantes'=>$request->guantes,
+            'botas'=>$request->botas,
+            'gafas'=>$request->gafas,
+            'proteccion_auditiva'=>$request->proteccion_auditiva,
+            'entrenado'=>$request->entrenado,
+            'elementos_estado'=>$request->elementos_estado,
+            'certificado'=>$request->certificado,
+            'anclaje_seguro'=>$request->anclaje_seguro,
+            'adaptadores_anclaje'=>$request->adaptadores_anclaje,
+            'altura_trabajador'=>$request->altura_trabajador,
+            'longitud_eslinga'=>$request->longitud_eslinga,
+            'absorvedor_choque'=>$request->absorvedor_choque,
+            'factor_seguridad'=>$request->factor_seguridad,
+            'distancia_caida'=>$request->distancia_caida,
+            'distancia_caida_libre'=>$request->distancia_caida_libre,
+            'distancia_libre'=>$request->distancia_libre,
+            'trabajador1'=>$request->trabajador1,
+            'trabajador2'=>$request->trabajador2,
+        ];
+         
+        permisos_obras::create([
+            'id_user'=>Auth::user()->id,
+            'estado'=> 'no aprobado',
+            'titulo'=>$request->titulo,
+            'attributes'=> json_encode($attributes, True)
+            
+            ]);
+            return redirect('/permisos/crear')->with('status', 'permiso creado exitosamente!');
+         
     }
+        
+   
     
 
     /**
@@ -80,7 +127,48 @@ class PermisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $attributes=[
+            'empresa'=>$request->empresa,
+            'ciudad'=>$request->ciudad,
+            'area_proceso'=>$request->Area_proceso,
+            'fecha'=>$request->fecha,
+            'lugar'=>$request->lugar,
+            'hora'=>$request->hora,
+            'ubicacion'=>$request->ubicacion,
+            'altura'=>$request->altura,
+            'procedimiento'=>$request->procedimiento,
+            'elementos'=>$request->elementos,
+            'personal_capacitado'=>$request->personal_capacitado,
+            'verificacion'=>$request->verificacion,
+            'area_limpia'=>$request->area_limpia,
+            'delimitacion'=>$request->delimitacion,
+            'casco_burbuquejo'=>$request->casco_burbuquejo,
+            'guantes'=>$request->guantes,
+            'botas'=>$request->botas,
+            'gafas'=>$request->gafas,
+            'proteccion_auditiva'=>$request->proteccion_auditiva,
+            'entrenado'=>$request->entrenado,
+            'elementos_estado'=>$request->elementos_estado,
+            'certificado'=>$request->certificado,
+            'anclaje_seguro'=>$request->anclaje_seguro,
+            'adaptadores_anclaje'=>$request->adaptadores_anclaje,
+            'altura_trabajador'=>$request->altura_trabajador,
+            'longitud_eslinga'=>$request->longitud_eslinga,
+            'absorvedor_choque'=>$request->absorvedor_choque,
+            'factor_seguridad'=>$request->factor_seguridad,
+            'distancia_caida'=>$request->distancia_caida,
+            'distancia_caida_libre'=>$request->distancia_caida_libre,
+            'distancia_libre'=>$request->distancia_libre,
+            'trabajador1'=>$request->trabajador1,
+            'trabajador2'=>$request->trabajador2,
+        ];
+        $permiso = permisos_obras::find($id);
+        $permiso->estado=$request->estado;
+        $permiso->titulo=$request->titulo;
+        $permiso->attributes=json_decode($attributes, True);
+        $permiso->save();
+        return redirect('/permisos/editar')->with('status', 'Permiso modificado exitosamente!');
     }
 
     /**
