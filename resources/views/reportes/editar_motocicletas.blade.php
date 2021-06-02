@@ -4,7 +4,7 @@
 <br><br>
 <div class="container">
 <h3>  Editar inspeccion Motocicletas</h3>
-<form id="formulario"> 
+<form  method="POST"   action="/reportes/update_reporte_motocicletas/{{ $id }}">
 @csrf
 @verbatim
 
@@ -329,7 +329,7 @@
              <h4>OBSERVACIONES</h4>
                         <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Registre sus observaciones</label>
-                                <textarea value="formato.obs" name="observaciones" class="form-control" id="observaciones" rows="3"></textarea>
+                                <textarea :value="formato.obs" name="observaciones" class="form-control" id="observaciones" rows="3"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" > Registrar </button>
              <br><br>

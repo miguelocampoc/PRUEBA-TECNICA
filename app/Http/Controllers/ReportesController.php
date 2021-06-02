@@ -258,6 +258,7 @@ class ReportesController extends Controller
         $motocicleta->categoria='motocicletas';
         $motocicleta->attributes=json_encode($attributes, True);
         $motocicleta->save();
+        return redirect('/reportes/editar/motocicletas/'.$id)->with('status', 'Reporte creado exitosamente!');
     }
 
     public function update_reporte_escaleras(Request $request, $id)
