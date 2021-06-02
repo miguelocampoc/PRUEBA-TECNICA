@@ -56,7 +56,9 @@ Route::get('/reportes/listar/arnes', 'ReportesController@listar_arnes');
 Route::patch('/reportes/update','ReportesController@update');
 Route::delete("/reportes/destroy", 'ReportesController@destroy');
 Route::get('/reportes/motocicletas', 'ReportesController@ver_reporte_motocicletas');
-
+Route::post('/reportes/update_motocicletas/{id}', 'ReportesController@update_reporte_motocicletas');
+Route::post('/reportes/update_escaleras/{id}', 'ReportesController@update_reporte_escaleras');
+Route::post('/reportes/update_arnes/{id}', 'ReportesController@update_reporte_arnes');
 
 /* Fin reportesController */
 

@@ -4,7 +4,7 @@
 <br><br>
 <div class="container">
 <h3>Crear inspeccion Arnes y Aparejos</h3>
-<form  method="POST"   action="/reportes/create_reporte_arnes">
+<form  method="POST"   action="/reportes/update_arnes/{{ $id }}">
 @csrf
 <div id="app" class="row">
 @verbatim

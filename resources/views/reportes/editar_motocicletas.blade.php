@@ -4,7 +4,7 @@
 <br><br>
 <div class="container">
 <h3>  Editar inspeccion Motocicletas</h3>
-<form  method="POST"   action="/reportes/update_reporte_motocicletas/{{ $id }}">
+<form  method="POST"   action="/reportes/update_motocicletas/{{ $id }}">
 @csrf
 @verbatim
 
