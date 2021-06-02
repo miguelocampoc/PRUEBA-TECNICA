@@ -1,34 +1,63 @@
 
 @extends('admin.layout')
 @section('content')
-<link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
 
 <br>
 <div class="container">
 <h3>Listar reportes de Inspeccion Escaleras</h3>
 <br>
-        <table id="table_id" class="table table-striped table-bordered" style="width:100%">
+<table id="table_id" class="table table-striped table-bordered" style="width:100%">
         
-           <thead>
-                <tr>
-                    <th>Creado por:</th>
-                    <th>Fecha de creacion</th>
-                    <th>Opciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Darwin cruz Soto </td>
-                    <td>2021-05-20 15:23:12</td>
-                    <td><a type='button' href="/usuarios/editar/" class='btn btn-primary mr-3' ><i class='fas fa-pen-alt'></i></a></td>
+        <thead>
+             <tr>
+                 <th>Creado por</th>
+                 <th>Fecha creacion</th>
+                 <th>Fecha actualizacion</th>
+                 <th>Opciones</th>
 
-                </tr>
-              
-           
-            </tbody>
-        </table>
+          
+
+             </tr>
+         </thead>
+         <tbody>
+             @foreach($formatos as $formato)
+          <tr>
+              <td>{{$formato->name}} {{$formato->apellido}}</td>
+              <td>{{$formato->created_at}} </td>
+              <td>{{$formato->updated_at}}</td>
+         
+              <td><a href="/reportes/editar/escaleras/{{$formato->id}}" class='btn btn-primary mr-3' ><i class='fas fa-pen-alt'></a></td>
+         </tr> 
+               @endforeach
+         
+         </tbody>
+     </table>
 </div>
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
-
-@include('usuarios.settings')
+@section('js')
+<script>
+      
+      $('#table_id').DataTable(
+        
+        {
+            "language": {
+                "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                "zeroRecords": "No hay registros",
+                "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                "infoEmpty": "No registros disponibles",
+                "infoFiltered": "(filtrado de _MAX_ total de registros)",
+                "search":         "Buscar:",
+                "paginate": {
+                    "first":      "First",
+                    "last":       "Last",
+                    "next":       "Siguiente",
+                    "previous":   "Anterior"
+               },
+            },
+          
+      
+        }
+      
+      );
+      </script>
+@endsection
 @endsection

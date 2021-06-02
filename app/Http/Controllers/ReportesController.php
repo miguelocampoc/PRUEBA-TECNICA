@@ -62,13 +62,32 @@ class ReportesController extends Controller
         ]);
     }
     public function listar_motocicletas(){
-        return view('reportes.listar_motocicletas',['listar_motocicletas'=>'active']);
+        return view('reportes.listar_motocicletas',
+        ['listar_motocicletas'=>'active',
+          'formatos'=>formatos::select('users.name','users.apellido','formatos.created_at','formatos.updated_at','formatos.id')
+          ->join('users','users.id','=','formatos.id_user')
+          ->where('categoria','=','motocicletas')->get()
+        ]
+        );
     }
     public function listar_escaleras(){
-        return view('reportes.listar_escaleras',['listar_escaleras'=>'active']);
+        return view('reportes.listar_escaleras',
+        ['listar_escaleras'=>'active',
+        'formatos'=>formatos::select('users.name','users.apellido','formatos.created_at','formatos.updated_at','formatos.id')
+        ->join('users','users.id','=','formatos.id_user')
+        ->where('categoria','=','escaleras')->get()
+        ]
+    );
     }
     public function listar_arnes(){
-        return view('reportes.listar_arnes',['listar_arnes'=>'active']);
+        return view('reportes.listar_arnes',
+        ['listar_arnes'=>'active',
+        'formatos'=>formatos::select('users.name','users.apellido','formatos.created_at','formatos.updated_at','formatos.id')
+        ->join('users','users.id','=','formatos.id_user')
+        ->where('categoria','=','arnes')->get()
+        
+        ]
+    );
     }
     
     
