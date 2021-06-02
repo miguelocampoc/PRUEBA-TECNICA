@@ -426,7 +426,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <li class="nav-item">
           
-          <a href="/permisos/listar" class="nav-link @if(isset($permiso_list)) {{$permiso_list}} @endif">
+          <a href="/permisos/listar_permisos" class="nav-link @if(isset($permisos_list)) {{$permisos_list}} @endif">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Ver permisos de trabajo
@@ -439,7 +439,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <li class="nav-item">
           
-          <a href="/permisos/listar" class="nav-link @if(isset($permiso_list)) {{$permiso_list}} @endif">
+          <a href="/permisos/listar_mis_permisos" class="nav-link @if(isset($my_permisos_list)) {{$my_permisos_list}} @endif">
             <i class="nav-icon fas fa-th"></i>
             <p>
               Ver mis permisos de trabajo

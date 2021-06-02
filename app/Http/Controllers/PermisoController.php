@@ -33,10 +33,51 @@ class PermisoController extends Controller
     {
         return view('permisos.create',['permiso_create'=>'active']);
     }
-    public function list()
+    public function edit_permiso($id)
     {
-        return view('permisos.list',['permiso_list'=>'active']);
+        permisos_obras::findOrFail($id);
+
+        return view('permisos.edit_permiso',[
+            'permisos_list'=>'active',
+            'id' => $id
+          ]
+        );
     }
+
+
+    public function permisos_list()
+    {
+        return view('permisos.permisos_list',[
+            'permisos_list'=>'active',
+           'permisos' => permisos_obras::select('permisos_obras.id','users.name','users.apellido','permisos_obras.created_at','permisos_obras.updated_at')
+            ->join('users','users.id','=','permisos_obras.id_user')
+            ->get()
+            
+            ]);
+    }
+    public function my_permisos_list()
+    {
+        return view('permisos.my_permisos_list',
+        ['my_permisos_list'=>'active',
+          'permisos'=>
+          permisos_obras::select('permisos_obras.id','users.name','users.apellido','permisos_obras.created_at','permisos_obras.updated_at')
+          ->join('users','users.id','=','permisos_obras.id_user')
+          ->where('permisos_obras.id_user','=', Auth::user()->id)
+          ->get()
+          
+        ]);
+    }
+    public function edit_my_permiso($id)
+    {
+        permisos_obras::findOrFail($id);
+
+        return view('permisos.edit_my_permiso',[
+            'my_permisos_list'=>'active',
+            'id' => $id
+           ]
+        );
+    }
+    
     /**
      * Store a newly created resource in storage.
      *

@@ -65,7 +65,11 @@ Route::post('/reportes/update_arnes/{id}', 'ReportesController@update_reporte_ar
 /*PermisoController */
 Route::get('/permisos/crear', 'PermisoController@create');
 Route::get('/permisos/editar', 'PermisoController@edit');
-Route::get('/permisos/listar', 'PermisoController@list');
+Route::get('/permisos/listar_permisos', 'PermisoController@permisos_list');
+Route::get('/permisos/listar_mis_permisos', 'PermisoController@my_permisos_list');
+Route::get('/permisos/visualizar_permiso/{id}', 'PermisoController@edit_permiso');
+Route::get('/permisos/editar_mi_permiso/{id}', 'PermisoController@edit_my_permiso');
+
 Route::patch('/permisos/update','PermisoController@update');
 Route::delete("/reportes/destroy", 'PermisoController@destroy');
 Route::post('/permisos/store', 'PermisoController@store');
