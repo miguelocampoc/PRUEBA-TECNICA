@@ -46,8 +46,11 @@ class ReportesController extends Controller
     public function editar_arnes(){
         return view('reportes.editar_arnes');
     }
-    public function editar_escaleras(){
-        return view('reportes.editar_esclaeras');
+    public function editar_escaleras($id){
+        $formatos = formatos::findOrFail($id);
+        return view('reportes.editar_escaleras',[
+            'id'=>$id
+        ]);
     }
     public function listar_motocicletas(){
         return view('reportes.listar_motocicletas',['listar_motocicletas'=>'active']);
