@@ -3,7 +3,7 @@
 
 <br>
 <div  id="app" class="container">
- <form  method="POST"   action="/reportes/create_reporte_escaleras">
+ <form  method="POST"   action="/reportes/update_escaleras/{{ $id }}">
  @csrf
  @verbatim
 
@@ -157,7 +157,7 @@
       
   
         
-                        <button class="btn btn-primary" onclick="RegisterUser()"> Registrar Inspeccion</button>
+                        <button class="btn btn-primary" onclick="RegisterUser()"> Modificar Inspeccion</button>
                         <br>
                         <br>
 @endverbatim
