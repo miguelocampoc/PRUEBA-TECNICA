@@ -7,7 +7,7 @@
 }
 </style>
 <br>
-<div id="app" class="container">
+<div id="app" class="container pl-3">
 <h3>Usuarios</h3>
 <p id="type" class=""></p>
 
@@ -18,11 +18,8 @@
                 <tr>
                     <th>id</th>
                     <th>nombre</th>
-                    <th>Apellido</th>
-                    <th>cedula</th>
-                    <th>estado</th>
-                    <th>cargo</th>
-                    <th>rol</th>
+                    <th>email</th>
+                    <th>tipo</th>
                     <th>Opciones</th>
 
                 </tr>
@@ -62,12 +59,10 @@
                     "columns": [
                     { "data": "id" ,"className":"hidden"},
                     { "data": "name" },
-                    { "data": "apellido" },
-                    { "data": "cedula" },
-                    { "data": "estado" },
-                    { "data": "cargo" },
-                    { "data": "rol" },
-                    { "defaultContent": " <a  class='btn btn-primary mr-3 ' ><i class='fas fa-pen-alt'></i></a><button  class='btn btn-primary mr-3 setting' ><i class='fas fa-cog'></i></button>"},
+                    { "data": "email" },
+
+                    { "data": "tipo" },
+                    { "defaultContent": " <a  class='btn btn-primary mr-3 ' ><i class='fas fa-pen-alt'></i></a><button  class='btn btn-primary mr-3 setting' ><i class='fas fa-cog'></i></button> <button  class='btn btn-primary drop' ><i class='far fa-minus-square'></i></button>"},
 
                     ]
                 }
@@ -83,12 +78,15 @@
                 $('#table_id tr ').on('click', 'button.setting', function(){
                         var data= table.row($(this).parents("tr")).data();
                         $("#insert").modal({backdrop: "static"});
-                        $('#id_user').val(id);
+                        $('#id_user').val(data.id);
                         $('#password').val("");
                         $('#cpassword').val("");
                         $('#insert').modal('show'); 
                 });
-
+                $('#table_id tr ').on('click', 'button.drop', function(){
+                        var data= table.row($(this).parents("tr")).data();
+                        btn_drop(data.id);
+                });
                         
             function usuarios_inactivos(){
                 $('#type').text("Estas viendo solo los usuarios inactivos");
@@ -170,6 +168,42 @@
                 
                 
         }
+        function btn_drop(id){
+        const swalWithBootstrapButtons = Swal.mixin({
+                    customClass: {
+                        confirmButton: 'btn btn-success ml-2',
+                        cancelButton: 'btn btn-danger'
+                    },
+                    buttonsStyling: false
+                    })
+
+                    swalWithBootstrapButtons.fire({
+                        title: '¿Estas seguro de Eliminar este registro?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Si, Eliminar',
+                        cancelButtonText: 'No, Cancelar!</div>',
+                        reverseButtons: true
+                        }).then((result) => {
+                        if (result.isConfirmed) {
+                         var url="/usuarios/drop";
+                         axios.post(url,{"id":id}).then(response =>{
+                           location.href="/usuarios/listar";
+                         });
+                            swalWithBootstrapButtons.fire(
+                            'Eliminado!',
+                            'Su registro ha sido borrado exitosamente',
+                            'success'
+                            )
+                        } else if (
+                            /* Read more about handling dismissals below */
+                            result.dismiss === Swal.DismissReason.cancel
+                        ) {
+                           
+                        }
+                        })
+
+      }
 
 
 </script>

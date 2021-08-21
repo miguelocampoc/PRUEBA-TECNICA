@@ -7,7 +7,7 @@
 
         <div class="col-md-6">
             <div class="card " style="background-color:#ede7f6">
-                <div class="card-header " style="text-align:center"> <img src="{{ asset('adminlte/img/LogoColomtel1.PNG') }}" width="200px"></img></div>
+                <div class="card-header " style="text-align:center; font-size:20px; "> Login Logistica</div>
                 <div class="card-body ">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf

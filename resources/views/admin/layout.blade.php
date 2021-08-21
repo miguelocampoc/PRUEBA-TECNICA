@@ -7,14 +7,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>REGIN</title>
+  <title>Logistica</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
-
+   @yield('css')
+   
   <link rel="stylesheet" href="{{asset('/adminlte/css/adminlte.min.css') }}">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>  
   <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
@@ -25,7 +26,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav style="background-color:#ec048c;" class="main-header navbar navbar-expand navbar-white navbar-dark">
+  <nav style="background-color:#546e7a;" class="main-header navbar navbar-expand navbar-white navbar-dark">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -187,8 +188,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
 
-      <img src="{{ asset('adminlte/img/LogoColomtel1.PNG') }}" alt="AdminLTE Logo" class="brand-image " style="opacity: .8">
-      <span class="brand-text font-weight-light">REGIN</span>
+     <span class="brand-text ml-4 font-weight-light"> PRUEBA</span>
     </a>
 
     <!-- Sidebar -->
@@ -198,7 +198,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <li class="nav-item ">
             <a href="#" class="nav-link ">
-            <img src="/files/private/{{Auth::user()->foto_perfil }}"class="mr-2" height="40px" width="40px;" style="border-radius:20px;"  alt="User Image">
+            <img src="{{asset('/adminlte/img/AdminLTELogo.png') }}"class="mr-2" height="40px" width="40px;" style="border-radius:20px;"  alt="User Image">
               <p>
             {{ Auth::user()->name }} 
       
@@ -207,12 +207,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item  menu-open ">
-                <a href="/usuarios/profile" class="nav-link  @if(isset($view_profile)) {{$view_profile}} @endif ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Mi perfil</p>
-                </a>
-              </li>
+           
               
             </ul>
           </li>
@@ -247,7 +242,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </p>
                 </a>
               </li>
-              @if( Auth::user()->rol=='administrador')
           <li class="nav-item @if(isset($create)) menu-open  @endif @if(isset($listar) ) menu-open @endif">
             <a href="#" class="nav-link @if(isset($create)) {{$create}} @endif @if(isset($listar) ) {{$listar}} @endif ">
               <i class="nav-icon fas fa-users"></i>
@@ -271,11 +265,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
             </ul>
           </li>
-          @endif
-          @if( Auth::user()->rol=='administrador'  )
+ 
 
-          <li class="nav-item @if(isset($escaleras) || isset($motocicletas)  || isset($arnesyaparejos) ) menu-open @endif">
-            <a href="#" class="nav-link @if(isset($escaleras) || isset($motocicletas) || isset($arnesyaparejos ) ) active @endif ">
+          <li class="nav-item @if(isset($vehiculo_create) || isset($crear_conductor)  || isset($orden_create) ) menu-open @endif">
+            <a href="#" class="nav-link @if(isset($vehiculo_create) || isset($crear_conductor) || isset($orden_create ) ) active @endif ">
               <i class="nav-icon fas fa-plus"></i>
               <p>
             Crear 
@@ -284,30 +277,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/crear/motocicletas" class="nav-link  @if(isset($motocicletas)) {{$motocicletas}} @endif">
+                <a href="/crear/vehiculo" class="nav-link  @if(isset($vehiculo_create)) {{$vehiculo_create}} @endif">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Motocicletas</p>
+                  <p>Vehiculo</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/crear/escaleras" class="nav-link @if(isset($escaleras)) {{$escaleras}} @endif ">
-                  <i class="far fa-circle  nav-icon"></i>
-                  <p>Escaleras</p>
+                <a href="/crear/persona" class="nav-link  @if(isset($crear_conductor)) {{$crear_conductor}} @endif">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Conductor o Propietario</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/crear/arnesyaparejos" class="nav-link @if(isset($arnesyaparejos)) {{$arnesyaparejos}} @endif">
-                  <i class="far fa-circle  nav-icon"></i>
-                  <p>Arnes y Aparejos</p>
-                </a>
-              </li>
+          
+             
             </ul>
           </li>
-          @endif
-          @if( Auth::user()->rol=='administrador'  )
 
-          <li class="nav-item @if(isset($view_motocicletas) || isset($view_escaleras)  || isset($view_arnesyaparejos) ) menu-open @endif">
-            <a href="#" class="nav-link @if(isset($view_motocicletas) || isset($view_escaleras)  || isset($view_arnesyaparejos) ) active @endif ">
+          <li class="nav-item @if(isset($vehiculo_list) || isset($personas_list)   ) menu-open @endif">
+            <a href="#" class="nav-link @if(isset($vehiculo_list) || isset($personas_list)  ) active @endif ">
               <i class="nav-icon far fa-eye"></i>
               <p>
             Ver 
@@ -316,140 +303,45 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/ver/motocicletas" class="nav-link @if(isset($view_motocicletas)) active @endif  ">
+                <a href="/ver/vehiculos" class="nav-link @if(isset($vehiculo_list)) active @endif  ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Motocicletas</p>
+                  <p>Vehiculos</p>
                 </a>
               </li>
+           
               <li class="nav-item">
-                <a href="/ver/escaleras" class="nav-link @if(isset($view_escaleras)) active @endif ">
+                <a href="/ver/personas" class="nav-link @if(isset($personas_list)) active @endif ">
                   <i class="far fa-circle  nav-icon"></i>
-                  <p>Escaleras</p>
+                  <p>Propietarios y conductores</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/ver/arnesyaparejos" class="nav-link @if(isset($view_arnesyaparejos)) active @endif">
-                  <i class="far fa-circle  nav-icon"></i>
-                  <p>Arnes y Aparejos</p>
-                </a>
-              </li>
+    
             </ul>
           </li>
-          @endif
-          <!--
-          <li class="nav-item">
-          
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-               <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          !-->
-          @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='tecnico' )
-
-          <li class="nav-item @if(isset($crear_motocicletas) || isset($crear_escaleras)  || isset($crear_arnes) ) menu-open @endif">
-            <a class="nav-link @if(isset($crear_motocicletas) || isset($crear_escaleras)  || isset($crear_arnes) ) active @endif ">
-              <i class="nav-icon fas fa-list"></i>
-              <p>
-             Crear reportes de inspeccion
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/reportes/crear_motocicletas" class="nav-link @if(isset($crear_motocicletas)) {{ $crear_motocicletas}} @endif ">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Motocicletas</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/reportes/crear_escaleras" class="nav-link @if(isset($crear_escaleras)) {{ $crear_escaleras}} @endif">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Escaleras</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/reportes/crear_arnes" class="nav-link @if(isset($crear_arnes)) {{ $crear_arnes}} @endif">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Arnes y aparejos</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item @if(isset($listar_arnes)|| isset($listar_escaleras) || isset($listar_motocicletas) ) menu-open @endif">
-            <a href="#" class="nav-link @if(isset($listar_arnes)|| isset($listar_escaleras) || isset($listar_motocicletas) ) active @endif">
+          <li class="nav-item @if(isset($consultas_fecha) || isset($consultas_placa)  ) ) menu-open @endif">
+            <a href="#" class="nav-link @if(isset($consultas_fecha) || isset($consultas_placa)  ) active @endif ">
               <i class="nav-icon far fa-eye"></i>
               <p>
-            Ver reportes de inspeccion
+            Consulta 
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item ">
-                <a href="/reportes/listar/motocicletas" class="nav-link @if(isset($listar_motocicletas)) {{$listar_motocicletas}} @endif">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Motocicletas</p>
-                </a>
-              </li>
               <li class="nav-item">
-                <a href="/reportes/listar/escaleras" class="nav-link @if(isset($listar_escaleras)) {{$listar_escaleras}} @endif">
+                <a href="/consulta/placa" class="nav-link @if(isset($consultas_placa)) active @endif  ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Escaleras</p>
+                  <p>Placa</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/reportes/listar/arnes" class="nav-link @if(isset($listar_arnes)) {{$listar_arnes}} @endif">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Arnes y Aparejos</p>
-                </a>
-              </li>
+           
+             
             </ul>
+            
           </li>
-          @endif
-          @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='tecnico' )
 
-          <li class="nav-item">
-          
-          <a href="/permisos/crear" class="nav-link @if(isset($permiso_create)) {{$permiso_create}} @endif">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-           Crear pemisos de trabajo
-            <!-- <span class="right badge badge-danger">New</span>!-->
-            </p>
-          </a>
-        </li>
-        @endif
-        @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='ca' )
-
-        <li class="nav-item">
-          
-          <a href="/permisos/listar_permisos" class="nav-link @if(isset($permisos_list)) {{$permisos_list}} @endif">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Ver permisos de trabajo
-            <!-- <span class="right badge badge-danger">New</span>!-->
-            </p>
-          </a>
-        </li>
-        @endif
-        @if( Auth::user()->rol=='administrador' || Auth::user()->rol=='tecnico' )
-
-        <li class="nav-item">
-          
-          <a href="/permisos/listar_mis_permisos" class="nav-link @if(isset($my_permisos_list)) {{$my_permisos_list}} @endif">
-            <i class="nav-icon fas fa-th"></i>
-            <p>
-              Ver mis permisos de trabajo
-            <!-- <span class="right badge badge-danger">New</span>!-->
-            </p>
-          </a>
-        </li>
-         @endif
-
+      
         </ul>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -473,7 +365,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <div >
+    <div id="margin" >
         
 
         @yield('content')

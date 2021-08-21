@@ -2,6 +2,8 @@
 @section('content')
 <br>
 <div class="container">
+<a href="/usuarios/listar" class="btn btn-primary "><i class="fas fa-backward"></i></a><br><br>
+
 @if (session('status'))
 <div style=" background-color:#b9f6ca" class="alert  alert-dismissible fade show" role="alert">
   {{ session('status') }}
@@ -22,13 +24,7 @@
         <div style="color:red">{{ $message }}</div>
         @enderror
         </div>
-        <div class="col-xl-4  mb-4">
-        <p>Apellido:</p> 
-        <input id="apellido" name="apellido" type="text" class="form-control" value="{{$user->apellido}}">
-        @error('apellido')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
+
         <div class="col-xl-4 mb-4">
         <p>Email:</p>
         <input id="email" name="email" type="email" class="form-control" value="{{$user->email}}">
@@ -37,95 +33,27 @@
         @enderror
         </div>
       
-        <div class="col-xl-4  mb-4" >
-        <p>Numero de contacto:</p>
-        <input id="contacto"  name="contacto" type="text" class="form-control" value="{{$user->contacto}}">
-        @error('contacto')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Cedula:</p>
-        <input id="cedula"  name="cedula" type="text" class="form-control"  value="{{$user->cedula}}">
-        @error('cedula')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Licencia moto:</p>
-        <input id="licencia_moto"  name="licencia_moto" type="text" class="form-control" value="{{$user->licencia_moto}}">
-        @error('licencia_moto')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Cargo:</p>
-        <input id="cargo" name="cargo" type="text" class="form-control"  value="{{$user->cargo}}">
-        @error('cargo')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
+ 
 
+        <div class="col-xl-4  mb-4">
         <p>Rol:</p>
-        <select id="rol" name="rol" class="form-control" id="exampleFormControlSelect1">
-                 <option value="{{$user->rol}}">{{$user->rol}}</option>
-                 @if($user->rol!="administrador")
+        <select id="rol" name="rol" class="form-control" id="exampleFormControlSelect1"  value="{{old('rol')}}">
                 <option value="administrador">Administrador</option>
-                @endif
-                @if($user->rol!="tecnico")
-                <option value="tecnico">Tecnico</option>
-                @endif
-                @if($user->rol!="ca")
 
-                <option value="ca">Cordinador de alturas</option>
-                @endif
-
+         
         </select>
         @error('rol')
-        <div style="color:red" >{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Estado:</p>
-
-        <select id="estado" name="estado" class="form-control" id="exampleFormControlSelect1">
-                <option value="{{$user->estado}}">{{$user->estado}}</option>
-                @if($user->estado!="activo")
-                <option value="activo">Activo</option>
-                @endif
-                @if($user->estado!="inactivo")
-                <option value="inactivo">Inactivo</option>
-                @endif
-        </select>
-        @error('rol')
-        <div style="color:red" >{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Foto:</p>
-        <input  id="foto_perfil" name="foto_perfil" type="file" class="form-control-file  mb-3" id="exampleFormControlFile1">
-        <p>La foto actual es:  </p>
-
-        <img height="200px" width="200px" alt=""  src="/files/private/{{$user->foto_perfil}}" srcset="">
-
-        @error('foto_perfil')
-        <div style="color:red" >{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Foto Firma:</p>
-        <input value="{{$user->foto_firma}}" id="foto_firma" name="foto_firma" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
-        <p>La  firma actual es:  </p>        
-        <img   height="200px" width="200px" src="/files/private/{{$user->foto_firma}}" alt="" srcset="">
-
-        @error('foto_firma')
         <div style="color:red">{{ $message }}</div>
         @enderror
         </div>
+
+      
+        
+        
+     
     
 </div>
-<button class="btn btn-primary" onclick="RegisterUser()"> Editar Usuario</button>
+<button class="btn btn-primary"> Editar Usuario</button>
 
 </form>
 <br>

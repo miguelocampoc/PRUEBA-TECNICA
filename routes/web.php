@@ -23,10 +23,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/usuarios/crear', 'UserController@create');
 Route::post('/usuarios/store', 'UserController@store');
 
-Route::post('/reportes/create_reporte_motocicletas', 'ReportesController@create_reporte_motocicletas');
-Route::post('/reportes/create_reporte_escaleras', 'ReportesController@create_reporte_escaleras');
-Route::post('/reportes/create_reporte_arnes', 'ReportesController@create_reporte_arnes');
-
 
 Route::get('/usuarios/editar/{id}', 'UserController@edit');
 Route::get('/usuarios/listar', 'UserController@index');
@@ -38,74 +34,75 @@ Route::post('/usuarios/update/{id}','UserController@update');
 Route::get("/usuarios/destroy/{id}", 'UserController@destroy');
 Route::get("/usuarios/profile", 'UserController@view_profile');
 Route::post("/usuarios/edit_profile", 'UserController@edit_profile');
+Route::post("/usuarios/drop", 'UserController@destroy');
 
 
-/* Fin UsuariosController */
+/* Vehiculos*/
+Route::get('/crear/vehiculo', 'VehiculosController@create');
+Route::get('/ver/vehiculos', 'VehiculosController@list');
+Route::get('/ver/vehiculo/{id}/detalles', 'VehiculosController@detalles');
 
-/* ReportesController */
-Route::get('/reportes/crear_motocicletas', 'ReportesController@crear_motocicletas');
-Route::get('/reportes/crear_escaleras', 'ReportesController@crear_escaleras');
-Route::get('/reportes/crear_arnes', 'ReportesController@crear_arnes');
-Route::get('/reportes/editar/motocicletas/{id}', 'ReportesController@editar_motocicletas');
-Route::get('/reportes/editar/escaleras/{id}', 'ReportesController@editar_escaleras');
-Route::get('/reportes/editar/arnesyaparejo/{id}', 'ReportesController@editar_arnesyaparejos');
-Route::get('/reportes/get_reporte_id/{id}', 'ReportesController@get_reporte_motocicleta_id');
-Route::get('/reportes/listar/motocicletas', 'ReportesController@listar_motocicletas');
-Route::get('/reportes/listar/escaleras', 'ReportesController@listar_escaleras');
-Route::get('/reportes/listar/arnes', 'ReportesController@listar_arnes');
-Route::patch('/reportes/update','ReportesController@update');
-Route::delete("/reportes/destroy", 'ReportesController@destroy');
-Route::get('/reportes/motocicletas', 'ReportesController@ver_reporte_motocicletas');
-Route::post('/reportes/update_motocicletas/{id}', 'ReportesController@update_reporte_motocicletas');
-Route::post('/reportes/update_escaleras/{id}', 'ReportesController@update_reporte_escaleras');
-Route::post('/reportes/update_arnes/{id}', 'ReportesController@update_reporte_arnes');
+Route::get('/ver/vehiculos/edit/{id}', 'VehiculosController@edit');
 
-/* Fin reportesController */
+Route::post('/vehiculos/store', 'VehiculosController@store');
+Route::post('/vehiculo/update/{id}', 'VehiculosController@update');
+Route::post('/vehiculo/drop', 'VehiculosController@drop');
 
-/*PermisoController */
-Route::get('/permisos/crear', 'PermisoController@create');
-Route::get('/permisos/editar', 'PermisoController@edit');
-Route::get('/permisos/listar_permisos', 'PermisoController@permisos_list');
-Route::get('/permisos/listar_mis_permisos', 'PermisoController@my_permisos_list');
-Route::get('/permisos/visualizar_permiso/{id}', 'PermisoController@edit_permiso');
-Route::get('/permisos/editar_mi_permiso/{id}', 'PermisoController@edit_my_permiso');
-
-Route::patch('/permisos/update','PermisoController@update');
-Route::delete("/reportes/destroy", 'PermisoController@destroy');
-Route::post('/permisos/store', 'PermisoController@store');
-Route::post('/permisos/update/{id}', 'PermisoController@store');
-/* Fin PermisoController */
-
-/*ElementController*/
-Route::get('/crear/arnesyaparejos', 'ElementController@arnesyaparejos');
-Route::get('/crear/motocicletas', 'ElementController@motocicletas');
-Route::get('/crear/escaleras', 'ElementController@escaleras');
-Route::get('/ver/arnesyaparejos', 'ElementController@listar_arnesyaparejos');
-Route::get('/ver/motocicletas', 'ElementController@listar_motocicletas');
-Route::get('/escaleras/listar_all', 'ElementController@listar_escaleras_all');
-Route::get('/escaleras/listar_act', 'ElementController@listar_escaleras_act');
-
-Route::get('/ver/escaleras', 'ElementController@listar_escaleras');
-Route::get('/ver/motocicletas/editar/{id}', 'ElementController@editar_motocicletas');
-Route::get('/ver/escaleras/editar/{id}', 'ElementController@editar_escaleras');
-Route::get('/ver/arnesyaparejos/editar/{id}', 'ElementController@editar_ayp');
+/*Personas */
+Route::post('/persona/store', 'PersonasController@store');
 
 
-/* Motocicletas,escaleras y arnes:store,update */
-Route::post('/motocicletas/store', 'motocicletas@store');
-Route::post('/escaleras/store', 'escaleras@store');
-Route::post('/arnesyaparejos/store', 'arnesyaparejos@store');
-Route::post('/motocicletas/update/{id}', 'motocicletas@update');
-Route::post('/escaleras/update/{id}', 'escaleras@update');
-Route::post('/arnesyaparejos/update/{id}', 'arnesyaparejos@update');
+/* Fin Vehiculos*/
+
+/* Conductores */
+Route::get('/crear/persona', 'PersonasController@index');
+Route::post('/conductor/store', 'conductoresController@store');
+
+Route::get('/ver/conductores', 'conductores@list');
+Route::get('/editar/conductores/{id}', 'conductores@edit');
+/* Fin Conductores*/
+
+/* Ordenes */
+Route::get('/crear/orden', 'ordenes@create');
+Route::get('/ver/personas', 'PersonasController@list');
+Route::get('/ver/persona/edit/{id}', 'PersonasController@edit');
+Route::post('/persona/update/{id}', 'PersonasController@update');
+Route::post('/persona/drop', 'PersonasController@drop');
+
+Route::get('/ver/ordenes/editar/{id}', 'ordenes@edit');
+Route::post('/orden/store', 'ordenes@store');
+Route::post('/orden/update/{id}', 'ordenes@update');
+Route::post('/orden/drop', 'ordenes@drop');
 
 
-/* Fin  Motocicletas,escaleras y arnes:store,update */
+
+/* Fin Ordenes*/
+
+/* Consultas */
+
+Route::get('/consulta/placa', 'consultas@placa');
+Route::get('/consulta/fecha', 'consultas@fecha');
+
+Route::post('/consultar/placa', 'consultas@consult_placa');
+Route::post('/consultar/fecha', 'consultas@consult_fecha');
+
+/* Fin Ordenes*/
+
+/* Programacion */
+Route::get('/crear/programacion', 'programaciones@create');
+Route::get('/ver/programaciones', 'programaciones@list');
+Route::get('/ver/programaciones/editar/{id}', 'programaciones@edit');
+
+Route::post('/programaciones/store', 'programaciones@save');
+Route::post('/programaciones/update/{id}', 'programaciones@update');
+Route::post('/programacion/drop','programaciones@drop');
+
+/* Fin programacion*/
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin', function () {
     return view('admin.dashboard');
 });
-Route::get('/files/private/{file}', 'UserController@files');
+Route::get('/files/private/{file}', 'photoController@files');
 
 

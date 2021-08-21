@@ -31,7 +31,7 @@
        
 
         <main  style="
-        background: url(/adminlte/img/fondocolomtel.png) no-repeat fixed center; 
+        background: url(/adminlte/img/logsitca.jpg) no-repeat fixed center; 
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;

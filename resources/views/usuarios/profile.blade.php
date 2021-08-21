@@ -53,24 +53,7 @@
         @enderror
         </div>
         <div class="col-xl-4  mb-4">
-        <p>Licencia moto:</p>
-        <input id="licencia_moto"  name="licencia_moto" type="text" class="form-control" value="{{Auth::user()->licencia_moto}}">
-        @error('licencia_moto')
-        <div  style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-        <p>Cargo:</p>
-        <input id="cargo" name="cargo" type="text" class="form-control"  value="{{Auth::user()->cargo}}">
-        @error('cargo')
-        <div style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
-        <div class="col-xl-4  mb-4">
-      
-        </div>
-        <div class="col-xl-4  mb-4">
-      
+       
         </div>
         <div class="col-xl-4  mb-4">
         <p>Foto:</p>
@@ -83,16 +66,7 @@
         <div  style="color:red">{{ $message }}</div>
         @enderror
         </div>
-        <div class="col-xl-4  mb-4">
-        <p>Foto Firma:</p>
-        <input  id="foto_firma" name="foto_firma" type="file" class="form-control-file mb-3" id="exampleFormControlFile1">
-        <p>La  firma actual es:  </p>     
-        <img  height="200px" width="200px" src="/files/private/{{Auth::user()->foto_firma }}" alt="" srcset="">
-
-        @error('foto_firma')
-        <div  style="color:red">{{ $message }}</div>
-        @enderror
-        </div>
+     
     
 </div>
 <button class="btn btn-primary" onclick="RegisterUser()"> Editar Usuario</button>

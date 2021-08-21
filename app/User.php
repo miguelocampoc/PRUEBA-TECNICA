@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-      'id','name', 'password','email','apellido','contacto','cedula','licencia_moto','cargo','rol','estado','foto_perfil','foto_firma','created_at','updated_at'
+      'id','name', 'password','email','tipo','created_at','updated_at'
     ];
 
     /**
@@ -37,9 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function motocicletas(){
-        return $this->hasMany(motocicletas::class);
-    }
+   
     public function sendPasswordResetNotification($token)
     {
     $this->notify(new MyResetPassword($token));

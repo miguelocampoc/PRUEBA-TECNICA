@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use App\User;
-use Closure;
 use Illuminate\Support\Facades\DB;
 
-class administrador
+use Closure;
+
+class operador
 {
     /**
      * Handle an incoming request.
@@ -16,12 +16,12 @@ class administrador
      */
     public function handle($request, Closure $next)
     {
-      $consulta= DB::table('users')->where('users.id','=',auth()->user()->id)->first();
-       if($consulta->tipo!="administrador" ){
-        return redirect('/login');
-       }
-
-
-        return $next($request);
+        $consulta= DB::table('users')->where('users.id','=',auth()->user()->id)->first();
+        if($consulta->rol!="operador" && $consulta->rol!="administrador"){
+         return redirect('/login');
+        }
+ 
+ 
+         return $next($request);
     }
 }

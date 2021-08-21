@@ -30,7 +30,7 @@ class HomeController extends Controller
         
         return view('admin.dashboard',[
             'home'=>'active',
-            'rol'=>$consulta->rol,
+            'rol'=>$consulta->tipo,
         ]);   
         
     }
